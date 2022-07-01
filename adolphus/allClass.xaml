@@ -1,0 +1,153 @@
+﻿<Page x:Class="adolphus.allClass"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:adolphus"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="810"
+      Title="allClass" Loaded="Page_Loaded">
+
+    <Grid Background="White">
+        <ScrollViewer VerticalScrollBarVisibility="Visible" Margin="0,0,-8,0">
+            <Grid Height="800">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="15*" />
+                    <RowDefinition Height="61*" />
+                    <RowDefinition Height="12*" />
+                    <RowDefinition Height="72*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0" Grid.Column="0" Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <ComboBox  Grid.Row="0" Grid.Column="0" Margin="3,2,3,0" Height="45" x:Name="type1" materialDesign:HintAssist.Hint="Type" materialDesign:HintAssist.IsFloating="True" Foreground="#FF231A76" FontSize="16" BorderBrush="#FF231A76">
+                        <ComboBoxItem Content="School Fees" Selected="feesSelected"/>
+                        <ComboBoxItem Content="Other Items" Selected="itemSelected"/>
+                    </ComboBox>
+
+                    <TextBox Grid.Row="0" Grid.Column="1" Margin="3,2,3,0" Height="49" x:Name="studsearch" Visibility="Visible" materialDesign:HintAssist.Hint="Search" materialDesign:HintAssist.IsFloating="True" TextWrapping="Wrap" Text=""  FontSize="16" CaretBrush="White" SelectionBrush="LightBlue" Foreground="#FF231A76" BorderBrush="#FF231A76" FontFamily="Ebrima" IsEnabled="False"/>
+
+                    <DatePicker Grid.Row="0" Grid.Column="1"  Margin="3,15,3,0" Height="32" x:Name="datepick" Visibility="Hidden" materialDesign:HintAssist.Hint="Date Of Payment " materialDesign:HintAssist.IsFloating="True" Text="" FontSize="16" Foreground="#FF231A76" BorderBrush="#FF231A76" FontFamily="Ebrima"/>
+
+                    <ComboBox Grid.Row="0" Grid.Column="2" Margin="3,13,3,0" Height="35" x:Name="typesearch" Foreground="#FF231A76" FontSize="16" BorderBrush="#FF231A76">
+                        <ComboBoxItem Content="Student Reg No" Selected="ComboBoxItem_Selected_3"/>
+                        <ComboBoxItem Content="Student Name" Selected="ComboBoxItem_Selected_2"/>
+                        <ComboBoxItem Content="Student Class" Selected="ComboBoxItem_Selected_1"/>
+                        <ComboBoxItem Content="Date of Payement" Selected="ComboBoxItem_Selected"/>
+                    </ComboBox>
+
+                    <ComboBox Grid.Row="0" Grid.Column="3" Margin="3,3,3,0" Height="45" x:Name="classe" materialDesign:HintAssist.Hint="Class" materialDesign:HintAssist.IsFloating="True" Foreground="#FF231A76" FontSize="16" BorderBrush="#FF231A76" IsEnabled="False"/>
+
+                    <ComboBox Grid.Row="0" Grid.Column="4" Margin="3,3,3,0" Height="45" x:Name="terma"  materialDesign:HintAssist.Hint="Term" materialDesign:HintAssist.IsFloating="True" Foreground="#FF231A76" FontSize="16" BorderBrush="#FF231A76" IsEnabled="False"/>
+
+                    <ComboBox Grid.Row="0" Grid.Column="5" Margin="3,3,3,0" Height="45" x:Name="sessiona" materialDesign:HintAssist.Hint="Session" materialDesign:HintAssist.IsFloating="True" Foreground="#FF231A76" FontSize="16" BorderBrush="#FF231A76" IsEnabled="False"/>
+
+                    <Button Grid.Row="0" Grid.Column="6" Margin="3,15,3,0" Height="32" Width="90" HorizontalAlignment="Right" x:Name="search" Content="Search" Padding="0" BorderBrush="#FF3399FF" BorderThickness="2,1" Click="Search_Click" ToolTip="Search Student" Background="{x:Null}" Foreground="#FF3399FF" FontSize="13.333"/>
+                    <Button Grid.Row="0" Grid.Column="6" Margin="3,15,3,0" Height="32" Width="90" HorizontalAlignment="Right" x:Name="search2" Visibility="Hidden" Content="Search" Padding="0" BorderBrush="#FF3399FF" BorderThickness="2,1" Click="Search2_Click" ToolTip="Search Student" Background="{x:Null}" Foreground="#FF3399FF" FontSize="13.333"/>
+
+                    <TextBlock x:Name="idds" Visibility="Hidden" TextWrapping="Wrap" Text="" FontSize="14" Foreground="LightGray"/>
+                </Grid>
+
+                <Grid Grid.Row="1" Grid.Column="0">
+                    <DataGrid x:Name="studdatagrid" Margin="10" FontSize="12" FontFamily="Century Gothic" CanUserSortColumns="True" CanUserReorderColumns="True" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="False" BorderThickness="0" Background="WhiteSmoke" AutoGeneratingColumn="studdatagrid_AutoGeneratingColumn_1"/>
+                    <DataGrid x:Name="otherdatagrid" Margin="10" Visibility="Hidden" FontSize="12" FontFamily="Century Gothic" CanUserSortColumns="True" CanUserReorderColumns="True" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="False" BorderThickness="0" Background="WhiteSmoke" AutoGeneratingColumn="studdatagrid_AutoGeneratingColumn_1"/>
+                </Grid>
+
+                <Grid Grid.Row="2" Grid.Column="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />                        
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Button Grid.Row="0" Grid.Column="0" Margin="10" Height="35" Width="100" x:Name="search_Copy" Content="View All" Padding="0" BorderBrush="{x:Null}" BorderThickness="0" Click="Viewall" Background="{x:Null}" Foreground="#FF3399FF" FontSize="15.5"/>
+                    <Button Grid.Row="0" Grid.Column="1" Margin="10" Height="35" Width="100" x:Name="export" Content="Export" Padding="0" BorderBrush="{x:Null}" BorderThickness="0" Click="excportdata" ToolTip="Export Data Grid" Background="{x:Null}" Foreground="#FF3399FF" FontSize="15.5"/>
+                    <Button Grid.Row="0" Grid.Column="2" Margin="10" Height="35" Width="100" x:Name="update" Content="Update" Padding="0" BorderBrush="{x:Null}" BorderThickness="0" Click="Updatestuddtata_Click" Background="#FF3399FF" Foreground="White" FontSize="15.5"/>
+                </Grid>
+
+                <Grid Grid.Row="3" Grid.Column="0" Margin="0,20,0,20">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0" Grid.Column="0" Margin="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" Grid.Column="0" x:Name="textBlock1" TextWrapping="Wrap" Text="Student that Paid Current Term School Fees (NOT COMPLETE)" FontSize="14.667" FontFamily="Segoe UI Semibold" TextAlignment="Center" Foreground="Gray"/>
+                        <ComboBox Grid.Row="1" Grid.Column="0" Height="45" Margin="3" HorizontalAlignment="Left" Width="150" x:Name="searchClassSelect2" materialDesign:HintAssist.Hint="Select Class" materialDesign:HintAssist.IsFloating="True" Foreground="#FF231A76" FontSize="16" BorderBrush="#FF231A76">
+                            <ComboBoxItem Content="SS3" Selected="aclassSelect3"/>
+                            <ComboBoxItem Content="SS2" Selected="aclassSelect2"/>
+                            <ComboBoxItem Content="SS1" Selected="aclassSelect1"/>
+                            <ComboBoxItem Content="JSS3" Selected="aclassSelectJ3"/>
+                            <ComboBoxItem Content="JSS2" Selected="aclassSelectJ2"/>
+                            <ComboBoxItem Content="JSS1" Selected="aclassSelectJ1"/>
+                        </ComboBox>
+                        <DataGrid Grid.Row="2" Grid.Column="0" Height="300" Width="auto" x:Name="allschoolfees" FontSize="12" FontFamily="Century Gothic" CanUserSortColumns="True" CanUserReorderColumns="True" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="False" BorderThickness="0" Background="WhiteSmoke" AutoGeneratingColumn="studdatagrid_AutoGeneratingColumn_2"/>
+                    </Grid>
+
+                    <Grid Grid.Row="0" Grid.Column="1" Margin="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" Grid.Column="0" x:Name="textBlock2" TextWrapping="Wrap" Text="Student that Paid Current Term School Fees (COMPLETE)" FontSize="14.667" FontFamily="Segoe UI Semibold" TextAlignment="Center" Foreground="Gray"/>
+                        <ComboBox Grid.Row="1" Grid.Column="0" Height="45" Margin="3" HorizontalAlignment="Left" Width="150" x:Name="searchClassSelect1" materialDesign:HintAssist.Hint="Select Class" materialDesign:HintAssist.IsFloating="True" Foreground="#FF231A76" FontSize="16" BorderBrush="#FF231A76">
+                            <ComboBoxItem Content="SS3" Selected="classSelect3"/>
+                            <ComboBoxItem Content="SS2" Selected="classSelect2"/>
+                            <ComboBoxItem Content="SS1" Selected="classSelect1"/>
+                            <ComboBoxItem Content="JSS3" Selected="classSelectJ3"/>
+                            <ComboBoxItem Content="JSS2" Selected="classSelectJ2"/>
+                            <ComboBoxItem Content="JSS1" Selected="classSelectJ1"/>
+                        </ComboBox>
+                        <DataGrid Grid.Row="2" Grid.Column="0" Height="300" Width="auto" x:Name="paidallschoolfees" FontSize="12" FontFamily="Century Gothic" CanUserSortColumns="True" CanUserReorderColumns="True" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="False" BorderThickness="0" Background="WhiteSmoke" AutoGeneratingColumn="studdatagrid_AutoGeneratingColumn_2"/>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </ScrollViewer>
+
+        <!--notify code-->
+        <materialDesign:DialogHost IsOpen="False" x:Name="notify" Background="Black">
+            <materialDesign:DialogHost.DialogContent>
+                <StackPanel Margin="10" Height="100" Width="550" Orientation="Vertical">
+                    <TextBlock x:Name="showing" Text="Hello There!"  Margin="0,15,0,0" FontSize="18" TextAlignment="Center"/>
+                    <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" CommandTarget="{Binding ElementName =notify}"
+                    Style="{DynamicResource MaterialDesignFlatButton}" Content="OK" Margin="0, 25, 0 ,0" FontSize="17.333"/>
+                </StackPanel>
+            </materialDesign:DialogHost.DialogContent>
+        </materialDesign:DialogHost>
+    </Grid>
+</Page>

@@ -1,0 +1,169 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:adolphus"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="adolphus.view_edit_teachers"
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="960"
+      Title="view_edit_teachers">
+
+    <Grid Background="White">
+        <ScrollViewer x:Name="scrolller" VerticalScrollBarVisibility="Visible" Margin="0,0,-5,0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="159*" />
+                    <RowDefinition Height="319*" />
+                    <RowDefinition Height="80" />
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0" Grid.Column="0">
+                    <TextBlock Margin="0,5,0,0" x:Name="textBlock1" TextAlignment="Center" TextWrapping="Wrap" Text="STAFF INFORMATION" FontSize="18.667" TextDecorations="{x:Null}" Foreground="#FF231A76" FontWeight="Bold"/>
+                </Grid>
+
+                <Grid Grid.Row="1" Grid.Column="0" Margin="0,0,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBox Grid.Row="0" Grid.Column="0" Margin="15,0,0,0" VerticalAlignment="Center" x:Name="staffsearch" materialDesign:HintAssist.Hint="Search Staff" materialDesign:HintAssist.IsFloating="True" TextWrapping="Wrap" Text="" FontSize="16" CaretBrush="White" SelectionBrush="LightBlue" Foreground="#FF231A76" BorderBrush="#FF231A76" FontFamily="Ebrima" TextChanged="Staffsearch_TextChanged"/>
+                    <ComboBox Grid.Row="0" Grid.Column="1" Margin="15,0,0,5" VerticalAlignment="Center" x:Name="typesearch" Height="45" Foreground="#FF231A76" FontSize="16" BorderBrush="#FF231A76">
+                        <ComboBoxItem Content="First_Name"/>
+                        <ComboBoxItem Content="Second_Name"/>
+                        <ComboBoxItem Content="Surname"/>
+                        <ComboBoxItem Content="Phone_Number"/>
+                        <ComboBoxItem Content="Class_Teaching"/>
+                        <ComboBoxItem Content="Position_in_School"/>
+                        <ComboBoxItem Content="Subject_Teaching"/>
+                    </ComboBox>
+                    <Button x:Name="search" Grid.Row="0" Grid.Column="2"  Margin="10,15,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Width="30" Height="28" Padding="0" BorderBrush="{x:Null}" BorderThickness="0" Click="Search_Click" ToolTip="Search Student" IsEnabled="False">
+                        <Button.Background>
+                            <ImageBrush ImageSource="icons8_search_24px_1.png" Stretch="Uniform" TileMode="FlipXY"/>
+                        </Button.Background>
+                    </Button>
+
+                    <Button Grid.Row="1" Grid.Column="0" Margin="10" Width="120" Height="35" x:Name="viewadmissindetails" Content="STAFF ITEMS" Click="Viewestaffxpenses_Click"/>
+
+                    <Grid Grid.Row="0" Grid.Column="5" Grid.RowSpan="2" Margin="0,0,10,5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="17*"/>
+                            <RowDefinition Height="55*"/>
+                        </Grid.RowDefinitions>
+
+                        <materialDesign:Card Background="White" Grid.Row="1" Grid.Column="0" Height="110" Width="140" VerticalAlignment="Bottom">
+                            <Grid>
+                                <Button x:Name="browseimage" Background="{x:Null}" BorderBrush="{x:Null}" Click="Browseimage_Click" Foreground="{x:Null}" Padding="0" Height="Auto">
+                                    <Image x:Name="staffimage" Source="default.jpg"/>
+                                </Button>
+                                <Image x:Name="eximageSource" Source="default.jpg" Visibility="Hidden"/>
+                            </Grid>
+                        </materialDesign:Card>
+                        <Button x:Name="updateimage" Grid.Row="0" Visibility="Hidden" VerticalAlignment="Bottom" Margin="2" Grid.Column="0" Height="30" Content="Update" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" Click="Updateimage_Click"/>
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Row="2" Grid.Column="0" Margin="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0" Grid.Column="0" Margin="15,0,15,0">
+                            <TextBlock Visibility="Hidden" x:Name="idds" FontSize="14" Foreground="LightGray"/>
+                            <TextBlock Visibility="Visible" x:Name="staffname" TextWrapping="Wrap" Text="" FontSize="14" Foreground="Gray"/>
+                        </Grid>
+                        <Grid Grid.Row="1" Grid.Column="0" Margin="15,0,15,0">
+                            <DataGrid x:Name="staffdatagrid" Width="AUTO" Height="300" FontSize="12" FontFamily="Century Gothic" CanUserSortColumns="True" CanUserReorderColumns="True" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="False" BorderThickness="0" Background="WhiteSmoke" SelectionChanged="DataGrid_SelectionChanged" AutoGeneratingColumn="studdatagrid_AutoGeneratingColumn_1"/>
+                            <!--//for auto generated objects-->
+                            <Grid x:Name="autogenGrid" Visibility="Hidden" Background="WhiteSmoke">
+                                <ScrollViewer Background="#FFF9F9F9" Margin="20,20,20,0" Height="80" VerticalAlignment="Top" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Auto">
+                                    <Canvas x:Name="MainCanvas" Background="Transparent" Margin="0,15,0,0"/>
+                                </ScrollViewer>
+                                <TextBox x:Name="specialInfo" Width="500" Margin="20,20,0,0" materialDesign:HintAssist.Hint="Special Information" materialDesign:HintAssist.IsFloating="True" VerticalAlignment="Center" HorizontalAlignment="Left" Height="55" FontSize="15" TextChanged="specialInfoChange"/>
+                                <DatePicker x:Name="itemsDate" Width="200" Margin="0,144,60,100" materialDesign:HintAssist.Hint="Date of Payement" materialDesign:HintAssist.IsFloating="True" VerticalAlignment="Center" HorizontalAlignment="Right" Height="30" FontSize="15" CalendarClosed="itemsDate_CalendarClosed"/>
+                                <Button x:Name="closeDataItems" Content="Close" HorizontalAlignment="Left" Margin="20,0,0,20" VerticalAlignment="Bottom" Width="121" BorderBrush="{x:Null}" Background="#FF3B7FB6" Click="closeItem_Click" Height="37"/>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Row="3" Grid.Column="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0" Grid.Column="1" Margin="15" VerticalAlignment="Bottom">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <Button Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" Height="40" x:Name="viewall" Content="VIEW ALL" Click="Viewall_Click" Background="#FF2BAC48" BorderBrush="#FF2BAC48"/>
+                        <Button Grid.Row="0" Grid.Column="1" Margin="5" Width="110" Height="40" x:Name="updatestaffdtata" Content="UPDATE" FontSize="16" Click="Updatestafftata_Click"/>
+                        <Button Grid.Row="0" Grid.Column="2" Margin="5" Width="110" Height="40" x:Name="removestaffdata" Content="REMOVE" FontSize="16" Background="#FFDA1E1E" BorderBrush="Red" Click="Removestaffata_Click"/>
+                        <Button Grid.Row="0" Grid.Column="3" Margin="5" Width="110" Height="40" x:Name="exportdata" Content="EXPORT" FontSize="16" Background="Black" BorderBrush="Black" Click="excportdata"/>
+                        <Button Grid.Row="0" Grid.Column="4" Margin="5" Width="110" Height="40" x:Name="printstaffata" Content="PRINT" FontSize="16" Click="Printstaffdata_Click" IsEnabled="False"/>
+                    </Grid>
+                </Grid>
+
+                <TextBlock x:Name="remove" Visibility="Hidden" TextWrapping="Wrap" Text="remove" FontSize="14"/>
+                <TextBox x:Name="Session" Visibility="Hidden" FontSize="14.667" BorderThickness="1" BorderBrush="Gray" IsEnabled="False" FontWeight="Bold" IsReadOnly="True"/>
+                <TextBox x:Name="Term" Visibility="Hidden" FontSize="14.667" BorderThickness="1" BorderBrush="Gray" IsEnabled="False" FontWeight="Bold" IsReadOnly="True"/>
+                <TextBox x:Name="Valid" Visibility="Hidden" FontSize="14.667" BorderThickness="1" BorderBrush="Gray" IsEnabled="False" FontWeight="Bold" IsReadOnly="True"/>
+            </Grid>
+        </ScrollViewer>
+        <!--notify code-->
+        <materialDesign:DialogHost IsOpen="False" x:Name="notify" Background="Black">
+            <materialDesign:DialogHost.DialogContent>
+                <StackPanel Margin="10" Height="100" Width="550" Orientation="Vertical">
+                    <TextBlock x:Name="showing" Text="Hello There!"  Margin="0,15,0,0" FontSize="18" TextAlignment="Center"/>
+                    <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" CommandTarget="{Binding ElementName =notify}"
+                    Style="{DynamicResource MaterialDesignFlatButton}" Content="OK" Margin="0, 25, 0 ,0" FontSize="17.333"/>
+                </StackPanel>
+            </materialDesign:DialogHost.DialogContent>
+        </materialDesign:DialogHost>
+
+        <Frame x:Name="mainframe" Visibility="Hidden" NavigationUIVisibility="Hidden" Background="#FFF3F5F9"/>
+        <Button x:Name="closeprint" Visibility="Hidden" Content="Close" HorizontalAlignment="Left" Margin="23,17,0,0" VerticalAlignment="Top" Width="75" FontSize="16" Height="30" Padding="2" Click="closeprint_Click" FontFamily="Cambria"/>
+        <Button x:Name="printout" Content="Print" Visibility="Hidden" HorizontalAlignment="Right" Margin="0,17,23,0" VerticalAlignment="Top" Width="75" FontSize="16" FontWeight="Normal" FontFamily="Cambria"/>
+    </Grid>
+</Page>

@@ -1,0 +1,72 @@
+﻿<Page x:Class="adolphus.staffStudy"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:adolphus"
+      mc:Ignorable="d" 
+      d:DesignHeight="490" d:DesignWidth="955"
+      Title="PRINT OUT" Loaded="Page_Loaded">
+    <Viewbox>
+        <Grid Background="White" Margin="0,0,0,0">
+            <Image Source="default.jpg" Margin="20,20,20,20" Opacity="0.45"/>
+            <ScrollViewer VerticalScrollBarVisibility="Hidden" Margin="0,0,0,0">
+                <Grid Height="590">
+                    <TextBlock x:Name="textBlock1" HorizontalAlignment="Center" Margin="305,12,305,0" Text="STUDENT PERSONAL INFORMATION" VerticalAlignment="Top" Height="30" Width="333" FontSize="19.333" TextDecorations="Underline" FontWeight="Bold" FontFamily="Cambria" TextAlignment="Center" FontStretch="SemiExpanded" TextOptions.TextHintingMode="Animated" TextOptions.TextFormattingMode="Display"/>
+                    <!--image part-->
+                    <Grid HorizontalAlignment="Left" Height="153" Margin="712,60,0,0" VerticalAlignment="Top" Width="179">
+                        <materialDesign:Card Height="139" HorizontalAlignment="Left" Width="171" Background="White" Margin="4,4,0,0">
+                            <Grid Height="119" Margin="0,0,0,0" VerticalAlignment="Top" Width="166">
+                                <TextBlock Text="Image Area" Margin="20,10,20,20" FontSize="12" Foreground="Black" TextAlignment="Center" FontFamily="Sitka Banner" />
+                                <Image x:Name="staffimage" Height="119" Width="152" Margin="6,6,6,6"/>
+                                <Image x:Name="eximageSource" Source="default.jpg" Visibility="Hidden" Width="0" Height="0"/>
+                            </Grid>
+                        </materialDesign:Card>
+                    </Grid>
+                    <!--first grid left-->
+                    <TextBlock x:Name="TextBlock1" HorizontalAlignment="Left" Margin="18,70,0,0" VerticalAlignment="Top" Width="110" Height="35" FontSize="16" FontFamily="Cambria" FontWeight="Medium"><Run Text="FIRST NAME"/><Run Text=":"/></TextBlock>
+                    <TextBlock x:Name="firstname" HorizontalAlignment="Left" Height="35" Margin="123,70,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="192" FontSize="16" FontWeight="Bold" FontFamily="Cambria"/>
+                    <TextBlock x:Name="TextBlock2" HorizontalAlignment="Left" Margin="346,70,0,0" VerticalAlignment="Top" Width="131" Height="35" FontSize="16" FontFamily="Cambria" FontWeight="Medium"><Run Text="SECOND NAME"/><Run Text=":"/></TextBlock>
+                    <TextBlock x:Name="secondname" HorizontalAlignment="Left" Height="35" Margin="470,70,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="189" FontSize="16" FontWeight="Bold" FontFamily="Cambria"/>
+                    <TextBlock x:Name="TextBlock3" HorizontalAlignment="Left" Margin="18,119,0,0" VerticalAlignment="Top" Width="110" Height="35" FontSize="16" FontFamily="Cambria" FontWeight="Medium"><Run Text="SUR NAME"/><Run Text=":"/></TextBlock>
+                    <TextBlock x:Name="surname" HorizontalAlignment="Left" Height="35" Margin="111,119,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="192" FontSize="16" FontWeight="Bold" FontFamily="Cambria"/>
+                    <TextBlock x:Name="TextBlock4" Text="SEX:" HorizontalAlignment="Left" Margin="346,117,0,0" VerticalAlignment="Top" Width="65" Height="34" FontSize="16" FontFamily="Cambria" FontWeight="Medium"/>
+                    <TextBlock x:Name="gender" HorizontalAlignment="Left" Height="34" Margin="393,116,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="110" FontSize="16" FontWeight="Bold" FontFamily="Cambria"/>
+                    <TextBlock x:Name="TextBlock5" HorizontalAlignment="Left" Margin="18,173,0,0" VerticalAlignment="Top" Width="136" Height="34" FontSize="16" FontFamily="Cambria" FontWeight="Medium"><Run Text="MARITAL STATUS"/><Run Text=":"/></TextBlock>
+                    <TextBlock x:Name="maritalstatus" HorizontalAlignment="Left" Margin="158,173,0,0" VerticalAlignment="Top" Width="156" Height="34" FontSize="16" FontWeight="Bold" FontFamily="Cambria"/>
+                    <TextBlock x:Name="TextBlock6" HorizontalAlignment="Left" Margin="346,171,0,0" VerticalAlignment="Top" Width="133" Height="34" FontSize="16" FontFamily="Cambria" FontWeight="Medium"><Run Text="PHONE NUMBER"/><Run Text=":"/></TextBlock>
+                    <TextBlock x:Name="phonenumber" HorizontalAlignment="Left" Height="34" Margin="483,171,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="182" FontSize="16" FontWeight="Bold" FontFamily="Cambria"/>
+                    <TextBlock x:Name="TextBlock7" HorizontalAlignment="Left" Margin="18,226,0,0" VerticalAlignment="Top" Width="150" Height="34" FontSize="16" FontFamily="Cambria" FontWeight="Medium"><Run Text="DATE OF BIRTH"/><Run Text=":"/><Run Text=" "/></TextBlock>
+                    <TextBlock x:Name="dateofbirth" HorizontalAlignment="Left" Margin="148,226,0,0" VerticalAlignment="Top" Height="34" Width="156" FontSize="16" FontWeight="Bold" FontFamily="Cambria"/>
+                    <TextBlock x:Name="TextBlock4_ext" HorizontalAlignment="Left" Margin="552,116,0,0" VerticalAlignment="Top" Width="65" Height="34" FontSize="16" FontFamily="Cambria" FontWeight="Medium"><Run Text="AGE"/><Run Text=":"/></TextBlock>
+                    <TextBlock x:Name="age" HorizontalAlignment="Left" Height="34" Margin="604,116,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="45" FontSize="16" FontWeight="Bold" FontFamily="Cambria"/>
+                    <TextBlock x:Name="TextBlock8" HorizontalAlignment="Left" Margin="346,226,0,0" VerticalAlignment="Top" Width="233" Height="34" FontSize="16" FontFamily="Cambria" FontWeight="Medium"><Run Text="PERMANENT HOME ADDRESS"/><Run Text=":"/></TextBlock>
+                    <TextBlock x:Name="address" HorizontalAlignment="Left" Height="34" Margin="578,226,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="346" FontSize="16" FontWeight="Bold" FontFamily="Cambria"/>
+                    <TextBlock x:Name="TextBlock9" HorizontalAlignment="Left" Margin="18,278,0,0" VerticalAlignment="Top" Width="55" Height="34" FontSize="16" FontFamily="Cambria" FontWeight="Medium"><Run Text="LGA"/><Run Text=":"/></TextBlock>
+                    <TextBlock x:Name="lga" HorizontalAlignment="Left" VerticalAlignment="Top" Width="245" Margin="62,278,0,0" Height="34" FontSize="16" FontWeight="Bold" FontFamily="Cambria"/>
+                    <TextBlock x:Name="TextBlock10" HorizontalAlignment="Left" Margin="346,278,0,0" VerticalAlignment="Top" Width="143" Height="34" FontSize="16" FontFamily="Cambria" FontWeight="Medium"><Run Text="STATE OF ORIGIN"/><Run Text=":"/></TextBlock>
+                    <TextBlock x:Name="state" HorizontalAlignment="Left" VerticalAlignment="Top" Width="161" Margin="487,278,0,0" Height="34" FontSize="16" FontWeight="Bold" FontFamily="Cambria"/>
+                    <TextBlock x:Name="TextBlock11" HorizontalAlignment="Left" Margin="668,275,0,0" VerticalAlignment="Top" Width="133" Height="34" FontSize="16" FontFamily="Cambria" FontWeight="Medium"><Run Text="NATIONALITY"/><Run Text=":"/></TextBlock>
+                    <TextBlock x:Name="nationality" HorizontalAlignment="Left" Height="34" Margin="784,275,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="140" FontSize="16" FontWeight="Bold" FontFamily="Cambria"/>
+                    <TextBlock x:Name="TextBlock12" HorizontalAlignment="Left" Margin="18,332,0,0" VerticalAlignment="Top" Width="136" Height="34" FontSize="16" FontFamily="Cambria" FontWeight="Medium"><Run Text="RELIGION"/><Run Text=":"/></TextBlock>
+                    <TextBlock x:Name="religion" HorizontalAlignment="Left" Margin="103,332,0,0" VerticalAlignment="Top" Width="203" Height="34" FontSize="16" FontWeight="Bold" FontFamily="Cambria"/>
+                    <TextBlock x:Name="TextBlock13" HorizontalAlignment="Left" Margin="346,332,0,0" VerticalAlignment="Top" Width="132" Height="34" FontSize="16" FontFamily="Cambria" FontWeight="Medium"><Run Text="DISABILITY"/><Run Text=":"/></TextBlock>
+                    <TextBlock x:Name="disability" HorizontalAlignment="Left" Height="34" Margin="445,332,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="202" FontSize="16" FontWeight="Bold" FontFamily="Cambria"/>
+                    <TextBlock x:Name="TextBlock14" HorizontalAlignment="Left" Margin="668,332,0,0" VerticalAlignment="Top" Width="120" Height="34" FontSize="16" FontFamily="Cambria" FontWeight="Medium"><Run Text="BLOOD GROUP"/><Run Text=":"/></TextBlock>
+                    <TextBlock x:Name="bloodgroup" HorizontalAlignment="Left" Height="34" Margin="792,332,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="124" FontSize="16" FontWeight="Bold" FontFamily="Cambria"/>
+
+                    <TextBlock x:Name="textBlock1_Copy1" HorizontalAlignment="Left" Margin="0,395,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Width="342" FontSize="18.667" TextDecorations="{x:Null}" TextAlignment="Center" FontFamily="Cambria" FontWeight="SemiBold"><Run Text="ADMISSION INFORMATION"/><Run Text="-"/></TextBlock>
+                    <TextBlock x:Name="TextBlock24" HorizontalAlignment="Left" Margin="18,444,0,0" VerticalAlignment="Top" Width="200" Height="34" FontSize="16" FontFamily="Cambria" FontWeight="Medium"><Run Text="SUBJECT TEACHING"/><Run Text=":"/></TextBlock>
+                    <TextBlock x:Name="Subject_Teaching" HorizontalAlignment="Left" Height="34" Margin="175,444,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="192" FontSize="16" FontWeight="Bold" FontFamily="Cambria"/>
+                    <TextBlock x:Name="TextBlocklast" HorizontalAlignment="Left" Margin="428,501,0,0" VerticalAlignment="Top" Width="75" Height="34" FontSize="16" FontFamily="Cambria" FontWeight="Medium"><Run Text="SALARY"/><Run Text=":"/></TextBlock>
+                    <TextBlock x:Name="Salary" HorizontalAlignment="Left" Height="34" Margin="502,501,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="172" FontSize="16" IsEnabled="False" FontWeight="Bold" FontFamily="Cambria"/>
+                    <TextBlock x:Name="TextBlock25" HorizontalAlignment="Left" Margin="428,444,0,0" VerticalAlignment="Top" Width="151" Height="34" FontSize="16" FontFamily="Cambria" FontWeight="Medium"><Run Text="CLASS TEACHING"/><Run Text=":"/></TextBlock>
+                    <TextBlock x:Name="Class_Teaching" HorizontalAlignment="Left" Height="34" Margin="570,444,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="175" FontSize="16" FontWeight="Bold" FontFamily="Cambria"/>
+                    <TextBlock x:Name="TextBlock26" Text="POSITION IN SCHOOL:" HorizontalAlignment="Left" Margin="18,501,0,0" VerticalAlignment="Top" Width="162" Height="34" FontSize="16" FontFamily="Cambria" FontWeight="Medium"/>
+                    <TextBlock x:Name="Position_in_School" HorizontalAlignment="Left" Margin="187,501,0,0" VerticalAlignment="Top" Height="34" Width="131" FontSize="16" FontWeight="Bold" FontFamily="Cambria"/>
+                </Grid>
+            </ScrollViewer>
+        </Grid>
+    </Viewbox>
+</Page>

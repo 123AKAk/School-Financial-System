@@ -1,0 +1,232 @@
+﻿<Page x:Class="adolphus.view_edit_student"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:adolphus"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="960"
+      Title="view_edit_student">
+
+    <Grid Background="White" Margin="0,0,0,0">
+        <ScrollViewer x:Name="scroller" VerticalScrollBarVisibility="Visible" Margin="0,0,-8,0" Background="White">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="159*" />
+                    <RowDefinition Height="319*" />
+                    <RowDefinition Height="80" />
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Grid.Column="0">
+                    <TextBlock Margin="0,5,0,0" x:Name="textBlock1" TextAlignment="Center" TextWrapping="Wrap" Text="STUDENT INFORMATION" FontSize="18.667" TextDecorations="{x:Null}" Foreground="#FF231A76" FontWeight="Bold"/>
+                </Grid>
+
+                <Grid Grid.Row="1" Grid.Column="0" Margin="0,0,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <TextBox Grid.Row="0" Grid.Column="0" Margin="15,0,0,0" VerticalAlignment="Center" x:Name="studsearch" materialDesign:HintAssist.Hint="Search Student" materialDesign:HintAssist.IsFloating="True" TextWrapping="Wrap" Text="" FontSize="16" CaretBrush="White" SelectionBrush="LightBlue" Foreground="#FF231A76" BorderBrush="#FF231A76" FontFamily="Ebrima" TextChanged="Studsearch_TextChanged"/>
+                    <DatePicker Grid.Row="0" Grid.Column="0" Margin="15,12,0,0" VerticalAlignment="Center" x:Name="datepick" Visibility="Hidden" materialDesign:HintAssist.Hint="Date Picker" materialDesign:HintAssist.IsFloating="True" Text="" FontSize="16" Foreground="#FF231A76" BorderBrush="#FF231A76" FontFamily="Ebrima"/>
+                    <ComboBox Grid.Row="0" Grid.Column="1" Margin="15,0,0,5" VerticalAlignment="Center" x:Name="typesearch" Height="45" materialDesign:HintAssist.Hint="" materialDesign:HintAssist.IsFloating="True" Foreground="#FF231A76" FontSize="16" BorderBrush="#FF231A76">
+                        <ComboBoxItem Content="Registration_Number" Selected="ComboBoxItem_Selected_1"/>
+                        <ComboBoxItem Content="Student_Class" Selected="ComboBoxItem_Selected_1"/>
+                        <ComboBoxItem Content="First_Name" Selected="ComboBoxItem_Selected_1"/>
+                        <ComboBoxItem Content="Second_Name" Selected="ComboBoxItem_Selected_1"/>
+                        <ComboBoxItem Content="Surname" Selected="ComboBoxItem_Selected_1"/>
+                        <ComboBoxItem Content="Date_of_Birth" Selected="ComboBoxItem_Selected"/>
+                        <ComboBoxItem Content="Father_Phone_Number" Selected="ComboBoxItem_Selected_1"/>
+                        <ComboBoxItem Content="Mother_Phone_Number" Selected="ComboBoxItem_Selected_1"/>
+                    </ComboBox>
+                    <Button Grid.Row="0" Grid.Column="2" x:Name="search" Margin="10,15,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Width="30" Height="28" Padding="0" BorderBrush="{x:Null}" BorderThickness="0" Click="Search_Click" ToolTip="Search Student" IsEnabled="False">
+                        <Button.Background>
+                            <ImageBrush ImageSource="icons8_search_24px_1.png" Stretch="Uniform" TileMode="FlipXY">
+                            </ImageBrush>
+                        </Button.Background>
+                    </Button>
+
+                    <Button Grid.Row="1" Grid.Column="0" Margin="10" Width="120" Height="35" x:Name="viewadmissindetails" Content="ADMISSION" Click="Viewadmissindetails_Click"/>
+                    <Button Grid.Row="1" Grid.Column="1" Margin="10" Width="120" Height="35" x:Name="viewfamilydetails" Content="FAMILY" Click="Viewfamilydetails_Click"/>
+                    <Button Grid.Row="1" Grid.Column="2" Margin="10" Width="120" Height="35" x:Name="viewotherdetails" Content="OTHER" Click="Viewotherdetails_Click"/>
+                    <Button Grid.Row="1" Grid.Column="3" Margin="10" Width="120" Height="35" x:Name="vieweschoolxpenses" Content="ITEMS" Click="Vieweschoolxpenses_Click"/>
+
+                    <Grid Grid.Row="0" Grid.Column="5" Grid.RowSpan="2" Margin="0,0,10,5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="17*"/>
+                            <RowDefinition Height="55*"/>
+                        </Grid.RowDefinitions>
+                        <materialDesign:Card Background="White" Grid.Row="1" Grid.Column="0" Height="110" Width="140" VerticalAlignment="Bottom">
+                            <Grid>
+                                <Button x:Name="browseimage" Background="{x:Null}" BorderBrush="{x:Null}" Click="Browseimage_Click" Foreground="{x:Null}" Padding="0" Height="Auto">
+                                    <Image x:Name="studimage" Source="default.jpg"/>
+                                </Button>
+                                <Image x:Name="eximageSource" Source="default.jpg" Visibility="Hidden"/>
+                            </Grid>
+                        </materialDesign:Card>
+                        <Button Grid.Row="0" Visibility="Hidden" VerticalAlignment="Bottom" Margin="2" Grid.Column="0" Height="30" x:Name="updateimage" Content="Update" Background="{x:Null}" BorderBrush="{x:Null}" Click="Updateimage_Click" Foreground="Black"/>
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Row="2" Grid.Column="0" Margin="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0" Grid.Column="0" Margin="15,0,15,0">
+                            <TextBlock Visibility="Hidden" x:Name="idds" FontSize="14" Foreground="LightGray"/>
+                            <TextBlock Visibility="Visible" x:Name="studname" TextWrapping="Wrap" Text="" FontSize="14" Foreground="Gray"/>
+                        </Grid>
+                        <Grid Grid.Row="1" Grid.Column="0" Margin="15,0,15,0">
+                            <DataGrid x:Name="studdatagrid" Width="AUTO" Height="300" FontSize="12" FontFamily="Century Gothic" CanUserSortColumns="True" CanUserReorderColumns="True" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="False" BorderThickness="0" Background="WhiteSmoke" SelectionChanged="DataGrid_SelectionChanged" AutoGeneratingColumn="studdatagrid_AutoGeneratingColumn_1">
+                                <DataGrid.Columns>
+                                    <DataGridTemplateColumn x:Name="ssss" Header="" Width="130" Visibility="Visible">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Button x:Name="viewschoolfees" Background="Gray" Content="School Fees" Click="schoolfees" Padding="0" BorderBrush="Gray"/>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <DataGridTemplateColumn x:Name="eeee" Header="" Width="100" Visibility="Visible">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Button x:Name="getclass" Background="Gray" Content="Class" Click="getStudClass" Padding="0" BorderBrush="Gray"/>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                            <Grid x:Name="studClassGrid" Visibility="Hidden" Background="WhiteSmoke">
+                                <Button x:Name="changeClass" Content="Change Class" HorizontalAlignment="Left" Margin="190,15,0,0" VerticalAlignment="Top" Width="121" BorderBrush="{x:Null}" Background="#FF3B7FB6" Click="changeClass_Click" Height="35" FontSize="13.333"/>
+                                <TextBlock x:Name="names" HorizontalAlignment="Left" Margin="330,20,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="36" Width="561" FontSize="14.667" Foreground="Gray" FontFamily="Simple Indust Outline"/>
+                                <ComboBox x:Name="current_class" Text="" materialDesign:HintAssist.Hint="Student Current Class" materialDesign:HintAssist.IsFloating="True" HorizontalAlignment="Left" VerticalAlignment="Top" Width="161" Height="42" Margin="10,5,0,0" FontSize="14" FontFamily="Simple Jut Out" IsEditable="True">
+                                    <ComboBoxItem Content="SS3"/>
+                                    <ComboBoxItem Content="SS2"/>
+                                    <ComboBoxItem Content="SS1"/>
+                                    <ComboBoxItem Content="JSS3"/>
+                                    <ComboBoxItem Content="JSS2"/>
+                                    <ComboBoxItem Content="JSS1"/>
+                                </ComboBox>
+                                <Button x:Name="bacck" Content="Close" HorizontalAlignment="Left" Margin="20,0,0,20" Padding="0" VerticalAlignment="Bottom" Width="100" BorderBrush="{x:Null}" Background="#FF3B7FB6" Height="35" Foreground="White" Click="bacck_Click"/>
+                            </Grid>
+                            <!--//for auto generated objects-->
+                            <Grid x:Name="autogenGrid" Visibility="Hidden" Background="WhiteSmoke">
+                                <ScrollViewer Background="#FFF9F9F9" Margin="20,20,20,0" Height="80" VerticalAlignment="Top" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Auto">
+                                    <Canvas x:Name="MainCanvas" Background="Transparent" Margin="0,15,0,0"/>
+                                </ScrollViewer>
+                                <TextBox x:Name="specialInfo" Width="500" Margin="20,20,0,0" materialDesign:HintAssist.Hint="Special Information" materialDesign:HintAssist.IsFloating="True" VerticalAlignment="Center" HorizontalAlignment="Left" Height="55" FontSize="15" TextChanged="specialInfoChange"/>
+                                <DatePicker x:Name="itemsDate" Width="200" Margin="0,144,60,100" materialDesign:HintAssist.Hint="Date of Payement" materialDesign:HintAssist.IsFloating="True" VerticalAlignment="Center" HorizontalAlignment="Right" Height="30" FontSize="15" CalendarClosed="itemsDate_CalendarClosed"/>
+                                <Button x:Name="closeDataItems" Content="Close" HorizontalAlignment="Left" Margin="20,0,0,20" VerticalAlignment="Bottom" Width="121" BorderBrush="{x:Null}" Background="#FF3B7FB6" Click="closeItem_Click" Height="37"/>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Grid>
+                
+                <Grid Grid.Row="3" Grid.Column="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" Grid.Column="1" Margin="15" VerticalAlignment="Bottom">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Button Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" Height="40" x:Name="viewall" Content="VIEW ALL" Click="Viewall_Click" Background="#FF2BAC48" BorderBrush="#FF2BAC48"/>
+                        <Button Grid.Row="0" Grid.Column="1" Margin="5" Width="110" Height="40" x:Name="updatestuddtata" Content="UPDATE" FontSize="16" Click="Updatestuddtata_Click"/>
+                        <Button Grid.Row="0" Grid.Column="2" Margin="5" Width="110" Height="40" x:Name="removestuddata" Content="REMOVE" FontSize="16" Background="#FFDA1E1E" BorderBrush="Red" Click="Removestuddata_Click"/>
+                        <Button Grid.Row="0" Grid.Column="3" Margin="5" Width="110" Height="40" x:Name="exportdata" Content="EXPORT" FontSize="16" Background="Black" BorderBrush="Black" Click="excportdata"/>
+                        <Button Grid.Row="0" Grid.Column="4" Margin="5" Width="110" Height="40" x:Name="printstuddata" Content="PRINT" FontSize="16" Click="Printstuddata_Click" IsEnabled="False"/>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </ScrollViewer>
+
+        <Grid x:Name="schoolfeesbox" Visibility="Hidden">
+            <Grid.Background>
+                <SolidColorBrush Color="Black" Opacity="0.45"/>
+            </Grid.Background>
+            <Border HorizontalAlignment="Center" VerticalAlignment="Center" Width="700" Height="350" Background="WhiteSmoke" CornerRadius="3">
+                <Grid Margin="20">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />                        
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBox HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="0" Grid.Column="0" Height="50" Width="200" x:Name="Stud_Name" materialDesign:HintAssist.Hint="Student Name" materialDesign:HintAssist.IsFloating="True" TextWrapping="Wrap" Text="" FontSize="14.667" BorderThickness="1" Padding="2" BorderBrush="Gray" IsEnabled="False" FontWeight="Bold" IsReadOnly="True"/>
+                    <TextBox Margin="10,0,0,0" Grid.Row="0" Grid.Column="1" Height="50" Width="150" x:Name="Stud_Reg" materialDesign:HintAssist.Hint="Student Reg No" materialDesign:HintAssist.IsFloating="True" TextWrapping="Wrap" Text="" FontSize="14.667" BorderThickness="1" Padding="2" BorderBrush="Gray" IsEnabled="False" FontWeight="Bold" IsReadOnly="True"/>
+                    <TextBox Margin="10,0,0,0" Grid.Row="0" Grid.Column="2" Height="50" Width="150" x:Name="School_Fees" materialDesign:HintAssist.Hint="Class School Fees" materialDesign:HintAssist.IsFloating="True" TextWrapping="Wrap" Text="" FontSize="14.667" BorderThickness="1" Padding="2" BorderBrush="Gray" IsEnabled="False" FontWeight="Bold" IsReadOnly="True"/>
+                    <TextBox HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="1" Grid.Column="0" Height="50" Width="150" x:Name="Session" Visibility="Visible" materialDesign:HintAssist.Hint="Session" materialDesign:HintAssist.IsFloating="True" TextWrapping="Wrap" Text="" FontSize="14.667" BorderThickness="1" Padding="2" BorderBrush="Gray" IsEnabled="False" FontWeight="Bold" IsReadOnly="True"/>                    
+                    <TextBox Margin="10,0,0,0" Grid.Row="1" Grid.Column="2" Height="50" Width="150" x:Name="Paid_School_Fees" materialDesign:HintAssist.Hint="Paid School Fees" materialDesign:HintAssist.IsFloating="True" TextWrapping="Wrap" Text="" FontSize="14.667" BorderThickness="0,0,0,1" Padding="2" BorderBrush="Gray" TextOptions.TextFormattingMode="Display" Foreground="Gray" FontWeight="Medium" TextChanged="Paid_School_Fees_TextChanged"/>
+                    <TextBox HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="2" Grid.Column="0" Height="50" Width="150" x:Name="Term" materialDesign:HintAssist.Hint="Term" materialDesign:HintAssist.IsFloating="True" TextWrapping="Wrap" Text="" FontSize="14.667" BorderThickness="1" Padding="2" BorderBrush="Gray" IsEnabled="False" FontWeight="Bold" IsReadOnly="True"/>                    
+                    <TextBox Margin="10,0,0,0" Grid.Row="1" Grid.Column="1" Height="50" Width="150" x:Name="Stud_Class" materialDesign:HintAssist.Hint="Class" materialDesign:HintAssist.IsFloating="True" TextWrapping="Wrap" Text="" FontSize="14.667" BorderThickness="1" Padding="2" BorderBrush="Gray" IsEnabled="False" FontWeight="Bold" IsReadOnly="True"/>
+                    <DatePicker Margin="10,20,0,0" Grid.Row="2" Grid.Column="1" Height="30" Width="150" x:Name="Date" materialDesign:HintAssist.Hint="Date" materialDesign:HintAssist.IsFloating="True" Text="" FontSize="14.667" BorderThickness="0,0,0,1" Padding="2" BorderBrush="Gray" IsEnabled="True" FontWeight="Medium" Foreground="Gray"/>
+                    <TextBox Margin="10,0,0,0" Grid.Row="2" Grid.Column="2" Height="50" Width="150" x:Name="Fees_owed" materialDesign:HintAssist.Hint="School Fees Owed" materialDesign:HintAssist.IsFloating="True" TextWrapping="Wrap" Text="" FontSize="14.667" BorderThickness="1" Padding="2" BorderBrush="Gray" IsEnabled="False" FontWeight="Bold" IsReadOnly="True"/>
+                    <TextBox HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="3" Grid.Column="0" Height="55" Width="205" x:Name="Notes" materialDesign:HintAssist.Hint="Notes:" materialDesign:HintAssist.IsFloating="True" TextWrapping="Wrap" Text="" FontSize="14.667" BorderThickness="0,0,0,1" Padding="2" BorderBrush="Gray" AcceptsTab="True" AcceptsReturn="True" AutoWordSelection="True" MaxLines="214748364" FontWeight="Medium"/>
+                    <Button Grid.Row="3" Grid.Column="1" x:Name="add" Margin="0,0,0,10" VerticalAlignment="Bottom" Height="32" Width="90" Visibility="Visible" Content="Add" Click="addschoolfees"/>
+                    <Button Grid.Row="3" Grid.Column="1" x:Name="update" Margin="0,0,0,10" VerticalAlignment="Bottom" Height="32" Width="90" Visibility="Hidden" Content="Update" Click="updateschoolfees"/>
+                    <Button Grid.Row="3" Grid.Column="2" x:Name="close" Margin="0,0,0,10" VerticalAlignment="Bottom" Height="32" Width="90" Content="Close" Background="#FF911E1E" BorderBrush="#FF911E1E" Click="hideschoolfeesbox"/>
+                </Grid>
+            </Border>
+        </Grid>
+        <!--notify code-->
+        <materialDesign:DialogHost IsOpen="False" x:Name="notify" Background="Black">
+            <materialDesign:DialogHost.DialogContent>
+                <StackPanel Margin="10" Height="100" Width="550" Orientation="Vertical">
+                    <TextBlock x:Name="showing" Text="Hello There!"  Margin="0,15,0,0" FontSize="18" TextAlignment="Center"/>
+                    <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" CommandTarget="{Binding ElementName =notify}"
+                    Style="{DynamicResource MaterialDesignFlatButton}" Content="OK" Margin="0, 25, 0 ,0" FontSize="17.333"/>
+                </StackPanel>
+            </materialDesign:DialogHost.DialogContent>
+        </materialDesign:DialogHost>
+
+        <Frame Grid.RowSpan="4" x:Name="mainframe" Visibility="Hidden" NavigationUIVisibility="Hidden" Background="#FFF3F5F9"/>
+        <Button x:Name="closeprint" Visibility="Hidden" Content="Close" HorizontalAlignment="Left" Margin="17,17,0,0" VerticalAlignment="Top" Width="75" FontSize="16" Height="30" Padding="2" Click="closeprint_Click" FontFamily="Cambria"/>
+        <Button x:Name="printout" Visibility="Hidden" Content="Print" HorizontalAlignment="Right" Margin="0,17,17,0" VerticalAlignment="Top" Width="75" FontSize="16" FontWeight="Normal" FontFamily="Cambria"/>
+    </Grid>
+</Page>

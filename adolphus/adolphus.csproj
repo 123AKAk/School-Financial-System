@@ -1,0 +1,389 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CDFC6D47-7C23-4191-846E-CE1434A0220E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>adolphus</RootNamespace>
+    <AssemblyName>adolphus</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Codeer.Friendly, Version=2.6.1.0, Culture=neutral, PublicKeyToken=6c44da6fca38aa86, processorArchitecture=MSIL">
+      <HintPath>..\packages\Codeer.Friendly.2.6.1\lib\net40\Codeer.Friendly.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Codeer.Friendly.Dynamic, Version=2.6.1.0, Culture=neutral, PublicKeyToken=376bc779077733e8, processorArchitecture=MSIL">
+      <HintPath>..\packages\Codeer.Friendly.2.6.1\lib\net40\Codeer.Friendly.Dynamic.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Codeer.Friendly.Windows, Version=2.15.0.0, Culture=neutral, PublicKeyToken=532f270f1da385b3, processorArchitecture=MSIL">
+      <HintPath>..\packages\Codeer.Friendly.Windows.2.15.0\lib\net20\Codeer.Friendly.Windows.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Codeer.Friendly.Windows.Grasp.2.0, Version=2.12.0.0, Culture=neutral, PublicKeyToken=92809a28945fb91d, processorArchitecture=MSIL">
+      <HintPath>..\packages\Codeer.Friendly.Windows.Grasp.2.12.0\lib\net35\Codeer.Friendly.Windows.Grasp.2.0.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Codeer.Friendly.Windows.Grasp.3.5, Version=2.12.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Codeer.Friendly.Windows.Grasp.2.12.0\lib\net35\Codeer.Friendly.Windows.Grasp.3.5.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Codeer.Friendly.Windows.KeyMouse.2.0, Version=1.3.14.0, Culture=neutral, PublicKeyToken=315dcaa3c3e851c2, processorArchitecture=MSIL">
+      <HintPath>..\packages\Codeer.Friendly.Windows.KeyMouse.1.3.14\lib\net35\Codeer.Friendly.Windows.KeyMouse.2.0.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Codeer.Friendly.Windows.KeyMouse.3.5, Version=1.3.14.0, Culture=neutral, PublicKeyToken=39f6ecaa6ad3a1f3, processorArchitecture=MSIL">
+      <HintPath>..\packages\Codeer.Friendly.Windows.KeyMouse.1.3.14\lib\net35\Codeer.Friendly.Windows.KeyMouse.3.5.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Codeer.TestAssistant.GeneratorToolKit, Version=3.10.0.0, Culture=neutral, PublicKeyToken=f7af39ab9bcf13fe, processorArchitecture=MSIL">
+      <HintPath>..\packages\Codeer.TestAssistant.GeneratorToolKit.3.10.0\lib\net20\Codeer.TestAssistant.GeneratorToolKit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MaterialDesignColors">
+      <HintPath>..\..\_MAIN FILES\MATERIAL DESIGN(visual studio code)\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf">
+      <HintPath>..\..\_MAIN FILES\MATERIAL DESIGN(visual studio code)\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.20.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Web, Version=8.0.20.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Management.Instrumentation" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WebDriver, Version=3.141.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.WebDriver.3.141.0\lib\net45\WebDriver.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="accountPage.xaml.cs">
+      <DependentUpon>accountPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="addstudent.xaml.cs">
+      <DependentUpon>addstudent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="add_items.xaml.cs">
+      <DependentUpon>add_items.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="allClass.xaml.cs">
+      <DependentUpon>allClass.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="allencrypt.xaml.cs">
+      <DependentUpon>allencrypt.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="cashflow.xaml.cs">
+      <DependentUpon>cashflow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Class1.cs" />
+    <Compile Include="deleteAll.xaml.cs">
+      <DependentUpon>deleteAll.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="dtba.cs" />
+    <Compile Include="EditPopup.xaml.cs">
+      <DependentUpon>EditPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="encrypt.cs" />
+    <Compile Include="expenditure.xaml.cs">
+      <DependentUpon>expenditure.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="home.xaml.cs">
+      <DependentUpon>home.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="mainLogin.xaml.cs">
+      <DependentUpon>mainLogin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Settings1.cs" />
+    <Compile Include="Settings1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings1.settings</DependentUpon>
+    </Compile>
+    <Compile Include="settings_page.xaml.cs">
+      <DependentUpon>settings_page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="staffStudy.xaml.cs">
+      <DependentUpon>staffStudy.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="startup.xaml.cs">
+      <DependentUpon>startup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="study.xaml.cs">
+      <DependentUpon>study.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="teachers.xaml.cs">
+      <DependentUpon>teachers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Test.xaml.cs">
+      <DependentUpon>Test.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ToDoList.cs" />
+    <Compile Include="todolistmain.xaml.cs">
+      <DependentUpon>todolistmain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="total_system.xaml.cs">
+      <DependentUpon>total_system.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view_edit_student.xaml.cs">
+      <DependentUpon>view_edit_student.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view_edit_teachers.xaml.cs">
+      <DependentUpon>view_edit_teachers.xaml</DependentUpon>
+    </Compile>
+    <Page Include="accountPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="addstudent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="add_items.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="allClass.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="allencrypt.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="cashflow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="deleteAll.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditPopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="expenditure.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="home.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="main.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="mainLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="login.xaml.cs">
+      <DependentUpon>login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="main.xaml.cs">
+      <DependentUpon>main.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="settings_page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="staffStudy.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="startup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="study.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="teachers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Test.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="todolistmain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="total_system.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view_edit_student.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view_edit_teachers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <None Include="Settings1.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings1.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Administrator Male_104px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Visible_2.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Invisible.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons8_search_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons8_search_24px_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons8_view_all_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="default.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="collapse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons8_left_26px_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\logo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="user_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\left_docking.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\pur_64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\face.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\staff_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\stud2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\stud0.jpg" />
+    <Resource Include="images\stud1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\money.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

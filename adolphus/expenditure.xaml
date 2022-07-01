@@ -1,0 +1,232 @@
+﻿<Page x:Class="adolphus.expenditure"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:adolphus"
+      mc:Ignorable="d"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      d:DesignHeight="500" d:DesignWidth="960"
+      Title="expenditure" Loaded="Page_Loaded">
+
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="13*" />
+            <RowDefinition Height="23*" />
+            <RowDefinition Height="64*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <TextBlock x:Name="idds" TextWrapping="Wrap" Text="" FontSize="10" Foreground="#FFE4E4E4"/>
+            <Button Grid.Row="0" Grid.Column="0" Height="40" Width="120" Margin="20,0,20,0" x:Name="add_cat" Content="Add Category" Click="add_cat_Click" FontSize="14"/>
+            <Button Grid.Row="0" Grid.Column="1" Height="40" Width="140" Margin="20,0,20,0" x:Name="add_exp" Content="Add Expenditure" Click="add_exp_Click" FontSize="14"/>
+            <Button Grid.Row="0" Grid.Column="2" Margin="20,0,20,0" x:Name="viewall" BorderBrush="{x:Null}" BorderThickness="0" ToolTip="View All" Click="Viewall_Click" FontSize="14">
+                <Button.Background>
+                    <ImageBrush ImageSource="icons8_view_all_50px.png" Stretch="Uniform" TileMode="FlipXY"/>
+                </Button.Background>
+            </Button>
+            <Button Grid.Row="0" Grid.Column="3" Height="40" Width="100" Margin="20,0,20,0" x:Name="viewall_Copy" Background="Transparent" Content="View Item" Padding="0" BorderBrush="#FF2196F3" BorderThickness="1" ToolTip="View All" Click="openGrid" Foreground="#FF2196F3" FontSize="13.333"/>
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.Column="0" >
+            <!--ópen grid-->
+            <Grid x:Name="grida" Visibility="Visible">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition Height="20" />
+                </Grid.RowDefinitions>
+                <TextBox Grid.Row="0" Grid.Column="0" x:Name="expenditure_cat_name" Margin="10,0,10,0" Height="45" materialDesign:HintAssist.Hint="Expenditure Name" materialDesign:HintAssist.IsFloating="True" TextWrapping="Wrap" Text="" FontSize="14"/>
+                <ComboBox Grid.Row="0" Grid.Column="1" x:Name="expendituretype" Margin="10,3,10,0" Height="41.5" materialDesign:HintAssist.Hint="Expenditure Type" materialDesign:HintAssist.IsFloating="True" Foreground="Black" FontSize="14">
+                    <ComboBoxItem Content="Capital_Expenditure"/>
+                    <ComboBoxItem Content="Direct_Expenditure"/>
+                    <ComboBoxItem Content="Indirect_Expenditure"/>
+                </ComboBox>
+                <Button Grid.Row="0" Grid.Column="2" Width="120" Margin="10,20,10,0" Height="40" x:Name="addexpenditureCategory" Content="ADD" Padding="0" FontSize="14" Click="Addexpenditurecategory_Click"/>
+                <Button Grid.Row="0" Grid.Column="3" Width="120" Margin="10,20,10,0" Height="40" x:Name="updateexpenditureCategory" Content="UPDATE" Padding="0" FontSize="14" Background="DarkBlue" BorderBrush="DarkBlue" Click="Updateexpenditurecategory_Click" IsEnabled="False"/>
+                <Button Grid.Row="0" Grid.Column="4" Width="120" Margin="10,20,10,0" Height="40" x:Name="deleteexpenditureCategory" Content="DELETE" Padding="0" FontSize="14" Background="#FFDA1E1E" BorderBrush="Red" Click="Deleteexpenditurecategory_Click" IsEnabled="False"/>
+            </Grid>
+
+            <!--second grid-->
+            <Grid x:Name="gridb" Visibility="Hidden" Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition Height="50" />
+                </Grid.RowDefinitions>
+                <TextBox Grid.Row="0" Grid.Column="0" x:Name="expenditurename" Margin="10,0,5,0" Height="45" materialDesign:HintAssist.Hint="Name of Expenditure" materialDesign:HintAssist.IsFloating="True" TextWrapping="Wrap" Text="" FontSize="14"/>
+                <ComboBox Grid.Row="0" Grid.Column="1" x:Name="expenditurecategory" Margin="5,2,5,0" Height="41.5" materialDesign:HintAssist.Hint="Exp Category" materialDesign:HintAssist.IsFloating="True" Foreground="Black" FontSize="14"/>
+                <TextBox Grid.Row="0" Grid.Column="2" x:Name="valuesofexpenditure" Margin="5,0,10,0" Height="45" materialDesign:HintAssist.Hint="Values" materialDesign:HintAssist.IsFloating="True" TextWrapping="Wrap" Text="" FontSize="14" TextChanged="valuesofexpenditure_TextChanged"/>
+                <TextBox Grid.Row="1" Grid.Column="0" x:Name="notes" Margin="10,0,5,0" Height="45" materialDesign:HintAssist.Hint="Notes" materialDesign:HintAssist.IsFloating="True" TextWrapping="Wrap" FontSize="14" MaxLines="5" AcceptsTab="True" AcceptsReturn="True" AutoWordSelection="True" FontWeight="SemiBold"/>
+                <TextBox Grid.Row="1" Grid.Column="1" x:Name="payementType" Margin="5,0,5,0" Height="45" materialDesign:HintAssist.Hint="Payment Type" materialDesign:HintAssist.IsFloating="True" TextWrapping="Wrap" Text="" FontSize="14"/>
+                <DatePicker Grid.Row="1" Grid.Column="2" x:Name="date" Margin="5,18,10,0" Height="28" materialDesign:HintAssist.Hint="Date" materialDesign:HintAssist.IsFloating="True" Text="" FontSize="14"/>
+                <Button Grid.Row="0" Grid.Column="3" Grid.RowSpan="2" Width="100" Height="40" x:Name="addexpenditure" Margin="0,20,0,20" Content="Add Exp" FontSize="13" Click="Addexpenditure_Click"/>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="2" Grid.Column="0" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20*" />
+                    <RowDefinition Height="261*" />
+                    <RowDefinition Height="19*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" x:Name="textBlock1_Copy" TextWrapping="Wrap" Text="Capital Expenditures" FontSize="14.667" TextDecorations="{x:Null}" Foreground="#FF231A76" TextAlignment="Center" FontFamily="Sylfaen"/>
+                <DataGrid Grid.Row="1" Grid.Column="0" Margin="10" x:Name="expenditureCapitaldatagrid" FontSize="12" FontFamily="Century Gothic" CanUserSortColumns="True" CanUserReorderColumns="True" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True" BorderThickness="0" Background="WhiteSmoke" SelectionChanged="DataGridCAPITAL_SelectionChanged" AutoGeneratingColumn="studdatagrid_AutoGeneratingColumn_1"/>
+                <Grid Grid.Row="2" Grid.Column="0" Margin="10,0,10,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="45*" />
+                        <ColumnDefinition Width="248*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" x:Name="textBlock1" TextWrapping="Wrap" Text="Total :" FontFamily="Tahoma" FontSize="13.333" Foreground="Gray"/>
+                    <TextBlock Grid.Row="0" Grid.Column="1" x:Name="TotalexpenditureCapital" TextWrapping="Wrap" Text="" FontFamily="Tahoma" FontSize="13.333" Foreground="Gray"/>
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="0" Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20*" />
+                    <RowDefinition Height="261*" />
+                    <RowDefinition Height="19*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" x:Name="textBlock1_Copy1" TextWrapping="Wrap" FontSize="14.667" TextDecorations="{x:Null}" Foreground="#FF231A76" TextAlignment="Center" FontFamily="Sylfaen"><Run Text="Direct"/><Run Text=" Expenditures"/></TextBlock>
+                <DataGrid Grid.Row="1" Grid.Column="0" Margin="10" x:Name="expendituredirectdatagrid" FontSize="12" FontFamily="Century Gothic" CanUserSortColumns="True" CanUserReorderColumns="True" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True" BorderThickness="0" Background="WhiteSmoke" SelectionChanged="DataGridDirect_SelectionChanged" AutoGeneratingColumn="studdatagrid_AutoGeneratingColumn_1"/>
+                <Grid Grid.Row="2" Grid.Column="0" Margin="10,0,10,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="45*" />
+                        <ColumnDefinition Width="247*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" x:Name="textBlock2" TextWrapping="Wrap" Text="Total :" FontFamily="Tahoma" FontSize="13.333" Foreground="Gray"/>
+                    <TextBlock Grid.Row="0" Grid.Column="1" x:Name="Totalexpendituredirect" TextWrapping="Wrap" Text="" FontFamily="Tahoma" FontSize="13.333" Foreground="Gray"/>
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="0" Grid.Column="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20*" />
+                    <RowDefinition Height="261*" />
+                    <RowDefinition Height="19*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" x:Name="textBlock1_Copy2" TextWrapping="Wrap" FontSize="14.667" TextDecorations="{x:Null}" Foreground="#FF231A76" TextAlignment="Center" FontFamily="Sylfaen"><Run Text="Indirect"/><Run Text=" Expenditures"/></TextBlock>
+                <DataGrid Grid.Row="1" Grid.Column="0" Margin="10" x:Name="expenditureindirectdatagrid" FontSize="12" FontFamily="Century Gothic" CanUserSortColumns="True" CanUserReorderColumns="True" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True" BorderThickness="0" Background="WhiteSmoke" SelectionChanged="DataGridIndirect_SelectionChanged" AutoGeneratingColumn="studdatagrid_AutoGeneratingColumn_1"/>
+                <Grid Grid.Row="2" Grid.Column="0" Margin="10,0,10,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="45*" />
+                        <ColumnDefinition Width="263*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" x:Name="textBlock3" TextWrapping="Wrap" Text="Total :" FontFamily="Tahoma" FontSize="13.333" Foreground="Gray"/>
+                    <TextBlock Grid.Row="0" Grid.Column="1" x:Name="Totalexpenditureindirect" TextWrapping="Wrap" Text="" FontFamily="Tahoma" FontSize="13.333" Foreground="Gray"/>
+                </Grid>
+            </Grid>
+        </Grid>
+
+        <Grid x:Name="itemgrid" Visibility="Hidden" Grid.RowSpan="3">
+            <Grid.Background>
+                <SolidColorBrush Color="Black" Opacity="0.7"/>
+            </Grid.Background>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="13*" />
+                <RowDefinition Height="14*" />
+                <RowDefinition Height="67*" />
+                <RowDefinition Height="Auto" MinHeight="30" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Grid.Column="0">
+                <TextBlock x:Name="getItem" Visibility="Hidden" TextWrapping="Wrap" Text="" FontSize="17.333" Foreground="White"/>
+            </Grid>
+            <Grid Grid.Row="0" Grid.Column="1">
+                <Button x:Name="close" Content="x" Background="Transparent" FontSize="20" Padding="0" BorderBrush="{x:Null}" BorderThickness="0" Click="closegrid" ToolTip="Close Grid" Foreground="White"/>
+            </Grid>
+
+            <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="37*" />
+                    <ColumnDefinition Width="27*" />
+                    <ColumnDefinition Width="69*" />
+                    <ColumnDefinition Width="59*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Button Grid.Row="0" Grid.Column="0" x:Name="updateexpenditure" Margin="0,15,0,15" Width="100" Height="40" Content="UPDATE" Background="DarkBlue" BorderBrush="DarkBlue" Padding="3" BorderThickness="0" ToolTip="Update Grid" Click="Updateexpenditure_Click" IsEnabled="True"/>
+                <Button Grid.Row="0" Grid.Column="1" x:Name="deleteexpenditure" Margin="0,15,0,15" Width="100" Height="40" Content="DELETE" Background="#FFDA1E1E" Padding="3" BorderBrush="Red" BorderThickness="0" ToolTip="Delete Item" Click="Deleteexpenditure_Click" IsEnabled="True"/>
+                <TextBlock Grid.Row="0" Grid.Column="3" x:Name="getText" Margin="10,15,40,15" Height="40" Width="230" TextWrapping="Wrap" Text="No Category Selected" FontSize="17.333" Foreground="White" TextAlignment="Left"/>
+            </Grid>
+            <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+                <Border Margin="40,0,40,0" CornerRadius="3" Background="DarkGray" BorderThickness="1">
+                    <DataGrid x:Name="dataGrid" Background="WhiteSmoke" Foreground="black" SelectionChanged="itemGrid_Selection" AutoGeneratingColumn="studdatagrid_AutoGeneratingColumn_1"/>
+                </Border>
+            </Grid>
+        </Grid>
+
+        <!--notify code-->
+        <materialDesign:DialogHost IsOpen="False" x:Name="notify" Background="Black" Grid.RowSpan="3">
+            <materialDesign:DialogHost.DialogContent>
+                <StackPanel Margin="10" Height="100" Width="550" Orientation="Vertical">
+                    <TextBlock x:Name="showing" Text="Hello There!"  Margin="0,15,0,0" FontSize="18" TextAlignment="Center"/>
+                    <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" CommandTarget="{Binding ElementName =notify}"
+                    Style="{DynamicResource MaterialDesignFlatButton}" Content="OK" Margin="0, 25, 0 ,0" FontSize="17.333"/>
+                </StackPanel>
+            </materialDesign:DialogHost.DialogContent>
+        </materialDesign:DialogHost>
+    </Grid>
+</Page>

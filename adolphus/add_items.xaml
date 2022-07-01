@@ -1,0 +1,109 @@
+﻿<Page x:Class="adolphus.add_items"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:adolphus"
+      mc:Ignorable="d" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      d:DesignHeight="490" d:DesignWidth="800"
+      Title="add_items">
+
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="29*" />
+            <RowDefinition Height="69*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Grid.Column="0">
+                <TextBox x:Name="itemname" Margin="0,0,0,0" Height="45" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Item Name" materialDesign:HintAssist.IsFloating="True" Text="" Width="200" FontSize="16"/>
+            </Grid>
+            <Grid Grid.Row="0" Grid.Column="1">
+                <ComboBox x:Name="itemtype" Margin="0,0,0,0" Height="45" Width="200" materialDesign:HintAssist.Hint="Item Type" materialDesign:HintAssist.IsFloating="True" Foreground="Black" FontSize="16" IsEditable="True" >
+                    <ComboBoxItem Content="Student_Item"/>
+                    <ComboBoxItem Content="Teacher_Item"/>
+                </ComboBox>
+            </Grid>
+            <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Grid.Column="0">
+                    <Button x:Name="additem" Content="ADD" Margin="135,0,0,30" Height="40" Width="120" FontSize="16" Click="Additem_Click"/>
+                </Grid>
+                <Grid Grid.Row="0" Grid.Column="1">
+                    <Button x:Name="deletetitem" Content="DELETE" Margin="50,0,50,30" Height="40" Width="120" FontSize="16" Background="#FFDA1E1E" BorderBrush="Red" IsEnabled="False" Click="Deletetitem_Click"/>
+                </Grid>
+                <Grid Grid.Row="0" Grid.Column="2">
+                    <Button x:Name="updateitem" Content="UPDATE" Margin="0,0,135,30" Height="40" Width="120" FontSize="16" Background="DarkBlue" BorderBrush="DarkBlue" IsEnabled="False" Click="Updateitem_Click"/>
+                </Grid>
+            </Grid>
+        </Grid>
+        <TextBlock x:Name="idds" HorizontalAlignment="Left" Margin="25,25,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="18" Width="18" FontSize="14" Foreground="LightGray"/>
+        <Grid Grid.Row="1" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <TextBlock x:Name="textBlock1" Grid.Row="0" Grid.Column="1" Margin="5,15,5,5" Height="25" TextWrapping="Wrap" Text="ALL STUDENT ITEMS" FontSize="16" TextDecorations="{x:Null}" Foreground="#FF231A76" FontWeight="Bold" TextAlignment="Center"/>
+                <DataGrid x:Name="itemsdatagrid" Grid.Row="1" Grid.Column="0" Margin="15,0,15,70" Width="auto" Height="auto" FontSize="12" FontFamily="Century Gothic" CanUserSortColumns="True" CanUserReorderColumns="True" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="False" BorderThickness="0" Background="WhiteSmoke" SelectionChanged="DataGrid_SelectionChanged" AutoGeneratingColumn="studdatagrid_AutoGeneratingColumn_1"/>
+            </Grid>
+            <Grid Grid.Row="0" Grid.Column="1" Grid.RowSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <TextBlock x:Name="textBlock1_Copy" Grid.Row="0" Grid.Column="1" Margin="5,15,5,5" Height="25" TextWrapping="Wrap" Text="ALL TEACHERS ITEMS" FontSize="16" TextDecorations="{x:Null}" Foreground="#FF231A76" FontWeight="Bold" TextAlignment="Center"/>
+                <DataGrid x:Name="itemsdatagrida" Grid.Row="1" Grid.Column="0" Margin="15,0,15,70" Width="auto" Height="auto" FontSize="14.667" FontFamily="Century Gothic" CanUserSortColumns="True" CanUserReorderColumns="True" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="False" BorderThickness="0" Background="WhiteSmoke" SelectionChanged="DataGrid_SelectionChanged" AutoGeneratingColumn="studdatagrid_AutoGeneratingColumn_1"/>
+            </Grid>
+        </Grid>
+                
+        <!--notify code-->
+        <materialDesign:DialogHost IsOpen="False" x:Name="notify" Background="Black" Grid.RowSpan="3">
+            <materialDesign:DialogHost.DialogContent>
+                <StackPanel Margin="10" Height="100" Width="550" Orientation="Vertical">
+                    <TextBlock x:Name="showing" Text="Hello There!"  Margin="0,15,0,0" FontSize="18" TextAlignment="Center"/>
+                    <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" CommandTarget="{Binding ElementName =notify}"
+                    Style="{DynamicResource MaterialDesignFlatButton}" Content="OK" Margin="0, 25, 0 ,0" FontSize="17.333"/>
+                </StackPanel>
+            </materialDesign:DialogHost.DialogContent>
+        </materialDesign:DialogHost>
+    </Grid>
+</Page>

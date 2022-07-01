@@ -1,0 +1,93 @@
+﻿<Window x:Class="adolphus.mainLogin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:adolphus"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="Login" Height="499" Width="835" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" Loaded="Page_Loaded">
+    <Grid MouseDown="drag">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1.3*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Grid.Column="0" Background="White">
+            <Button Background="White" Height="35" Width="75" Content="Help ?" HorizontalAlignment="Left" Margin="20,0,0,0" BorderBrush="{x:Null}" Foreground="Gray" IsTabStop="False"/>
+        </Grid>
+        <Grid Grid.Row="0" Grid.Column="1">
+            <Button x:Name="closeBtn" Background="{x:Null}" Height="35" Width="30" Content="x" Padding="0" HorizontalAlignment="Right" Margin="0,0,15,0" BorderBrush="{x:Null}" Foreground="#DDA21818" FontSize="22.667" Click="closeBtn_Click" IsTabStop="False"/>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="0" Background="White" Margin="20,20,20,40">
+            <Border x:Name="display" Visibility="Visible" BorderBrush="Black" BorderThickness="0" HorizontalAlignment="Center" Height="45" VerticalAlignment="Top" Width="210" Background="#FF9C27B0" CornerRadius="2">
+                <Border.Effect>
+                    <DropShadowEffect Color="LightGray"/>
+                </Border.Effect>
+                <TextBlock x:Name="display_text" TextWrapping="Wrap" Text="" TextAlignment="Center" FontSize="13.333" Foreground="White" Margin="0,13,0,7" HorizontalAlignment="Left" Width="210"/>
+            </Border>
+            <Image x:Name="sliderImageLogin" Source="images/stud2.jpg" Width="410" />
+        </Grid>
+        <Grid  Grid.Row="1" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <materialDesign:Card Grid.Row="0" Grid.Column="0" Background="White" Height="370" Margin="5,10,10,10" VerticalAlignment="Center">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Welcome Back" Height="35" TextAlignment="Center" FontSize="21.333" FontWeight="Bold" FontFamily="Script MT Bold" Foreground="#FF9C27B0"/>
+                    <Grid Grid.Row="1" Grid.Column="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="3*"/>
+                            <RowDefinition Height="3*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBox Grid.Row="0" Grid.Column="0" x:Name="username" Margin="0,0,0,0" Height="45" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Username" materialDesign:HintAssist.IsFloating="True" Text="" Width="250" FontSize="17.333" FontFamily="Sitka Text"/>
+                        <PasswordBox Grid.Row="1" Grid.Column="0" x:Name="password" Margin="0,0,0,0" Height="45" materialDesign:HintAssist.Hint="Password" materialDesign:HintAssist.IsFloating="True" Width="250" FontSize="17.333" FontFamily="Sitka Text"/>
+                        <Button Grid.Row="2" Grid.Column="0" Margin="0,0,40,0" Height="20" Width="120" Padding="0" HorizontalAlignment="Right" VerticalAlignment="Top" Content="Forgot Password?" Background="{x:Null}" BorderBrush="{x:Null}" MouseEnter="BbtnEnter" MouseLeave="BbtnLeave" FontSize="14.667">
+                            <Button.Foreground>
+                                <SolidColorBrush Color="#FF7E467E" Opacity="0.8"/>
+                            </Button.Foreground>
+                        </Button>
+                    </Grid>
+                    <Button x:Name="login" Grid.Row="3" Grid.Column="0" Height="40" Padding="0" Width="150" Content="Login" Margin="30" FontSize="16" Click="login_Click"/>
+                </Grid>
+            </materialDesign:Card>
+            <Button Grid.Row="1" Grid.Column="0" Height="20" Width="100" Padding="0" VerticalAlignment="Top" Content="Admin Area" Background="{x:Null}" BorderBrush="{x:Null}" MouseEnter="BbtnEnter" MouseLeave="BbtnLeave" FontSize="14.667" IsTabStop="False" Click="Button_Click">
+                <Button.Foreground>
+                    <SolidColorBrush Color="#FF7E467E" Opacity="0.8"/>
+                </Button.Foreground>
+            </Button>
+        </Grid>
+
+        <materialDesign:DialogHost IsOpen="False" x:Name="notify" Background="LightGray" Grid.RowSpan="3" Grid.ColumnSpan="2">
+            <materialDesign:DialogHost.DialogContent>
+                <StackPanel Margin="10" Height="110" Width="390" Orientation="Vertical">
+                    <TextBox x:Name="showing" materialDesign:HintAssist.Hint="Admin Password" materialDesign:HintAssist.IsFloating="True" Text="" Width="200"  Margin="0,15,0,0" FontSize="16" TextChanged="showing_TextChanged"/>
+                    <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" CommandTarget="{Binding ElementName =notify}"
+                    Style="{DynamicResource MaterialDesignFlatButton}" Content="Close" Margin="0, 20, 0 ,0" FontSize="17.333"/>
+                </StackPanel>
+            </materialDesign:DialogHost.DialogContent>
+        </materialDesign:DialogHost>
+    </Grid>
+</Window>

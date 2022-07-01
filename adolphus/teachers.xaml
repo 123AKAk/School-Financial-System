@@ -1,0 +1,987 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:adolphus"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="adolphus.teachers"
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="810"
+      Title="teachers">
+
+    <Grid Background="White">
+        <ScrollViewer VerticalScrollBarVisibility="Visible" Margin="0,0,-8,0">
+            <Grid Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />                    
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Width="350" TextAlignment="Center" x:Name="textBlock1" TextWrapping="Wrap" Text="STAFF PERSONAL INFORMATION" FontSize="18.667" TextDecorations="Underline" Foreground="#FF707070" FontWeight="Bold"/>
+                
+                <!--image part-->
+                <Grid Grid.Row="1" Grid.Column="1" Grid.RowSpan="3" Margin="10">
+                    <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Button Grid.Row="0" Grid.Column="0" Padding="0" Width="170" Height="140" x:Name="browseimage" BorderBrush="{x:Null}" Click="Browseimage_Click" Background="{x:Null}">
+                        <materialDesign:Card Background="White" Height="135" Width="165" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <Grid>
+                                <Image x:Name="staffimage" Margin="5"/>
+                            </Grid>
+                        </materialDesign:Card>
+                    </Button>
+                </Grid>
+
+                <!--first grid left-->
+                <Grid Grid.Row="1" Grid.Column="0"  Grid.ColumnSpan="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBox  Grid.Row="0" Grid.Column="0" Margin="10,5,5,5" x:Name="firstname" materialDesign:HintAssist.Hint="First Name" materialDesign:HintAssist.IsFloating="True" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="16"/>
+                    <TextBox Grid.Row="0" Grid.Column="1" Margin="10,5,5,5" x:Name="secondname" materialDesign:HintAssist.Hint="Second Name" materialDesign:HintAssist.IsFloating="True" TextWrapping="Wrap" Text="" FontSize="16"/>
+                    <TextBox Grid.Row="0" Grid.Column="2" Margin="10,5,5,5" x:Name="surname" materialDesign:HintAssist.Hint="Sur Name" materialDesign:HintAssist.IsFloating="True" TextWrapping="Wrap" Text="" FontSize="16"/>
+                </Grid>
+                <Grid Grid.Row="2" Grid.Column="0"  Grid.ColumnSpan="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" Grid.Column="0" Margin="10,5,5,5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="1*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <!--FEMALE-->
+                        <RadioButton Grid.Row="0" Grid.Column="0" x:Name="female" Content="FEMALE" FontSize="16" Foreground="#FF707070" Checked="Female_Checked" Margin="0,15,0,-15"/>
+                        <!--MALE-->
+                        <RadioButton Grid.Row="0" Grid.Column="1" x:Name="male" Content="MALE" FontSize="16" Foreground="#FF707070" Checked="Male_Checked" Margin="0,15,0,-15"/>
+                    </Grid>
+                    <ComboBox Grid.Row="0" Grid.Column="1" Margin="10,5,5,5" x:Name="maritalstatus" materialDesign:HintAssist.Hint="Marital Status" materialDesign:HintAssist.IsFloating="True" Foreground="Black" FontSize="16">
+                        <ComboBoxItem Content="SINGLE"/>
+                        <ComboBoxItem Content="MARRIED"/>
+                        <ComboBoxItem Content="DIVORCE"/>
+                        <ComboBoxItem Content="WIDOW"/>
+                        <ComboBoxItem Content="WIDOWER"/>
+                    </ComboBox>
+                    <TextBox Grid.Row="0" Grid.Column="2" Margin="10,5,5,5" x:Name="phonenumber" materialDesign:HintAssist.Hint="Phone Number" materialDesign:HintAssist.IsFloating="True" TextWrapping="Wrap" Text="" FontSize="16"/>
+                </Grid>
+
+                <Grid Grid.Row="3" Grid.Column="0"  Grid.ColumnSpan="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <DatePicker Grid.Row="0" Grid.Column="0" Height="32" VerticalAlignment="Bottom" Margin="10,5,5,5" x:Name="dateofbirth" materialDesign:HintAssist.Hint="Date of Birth" materialDesign:HintAssist.IsFloating="True" FontSize="16"/>
+                    <TextBox Grid.Row="0" Grid.Column="1" Margin="10,5,5,5" x:Name="age" materialDesign:HintAssist.Hint="Age" materialDesign:HintAssist.IsFloating="True" TextWrapping="Wrap" Text="" FontSize="16"/>
+                    <TextBox Grid.Row="0" Grid.Column="2" Margin="10,5,5,5" x:Name="address" materialDesign:HintAssist.Hint="Permanent Home Address " materialDesign:HintAssist.IsFloating="True" TextWrapping="Wrap" Text="" FontSize="16"/>
+                </Grid>
+                <Grid Grid.Row="4" Grid.Column="0"  Grid.ColumnSpan="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <ComboBox Grid.Row="0" Grid.Column="0" Margin="10,5,5,5" x:Name="lga" materialDesign:HintAssist.Hint="LGA" materialDesign:HintAssist.IsFloating="True" Foreground="Black" FontSize="16">
+                        <ComboBoxItem Content="Akinyele"/>
+                        <ComboBoxItem Content="Akko"/>
+                        <ComboBoxItem Content="Akoko"/>
+                        <ComboBoxItem Content="Akoko North - East"/>
+                        <ComboBoxItem Content="Akoko North-West"/>
+                        <ComboBoxItem Content="Akoko South-West"/>
+                        <ComboBoxItem Content="Akoko South-East"/>
+                        <ComboBoxItem Content="Akpabuyo"/>
+                        <ComboBoxItem Content="Akuku - Toru"/>
+                        <ComboBoxItem Content="Akure North"/>
+                        <ComboBoxItem Content="Akure South"/>
+                        <ComboBoxItem Content="Akwanga"/>
+                        <ComboBoxItem Content="Albasu"/>
+                        <ComboBoxItem Content="Aleiro"/>
+                        <ComboBoxItem Content="Alsho"/>
+                        <ComboBoxItem Content="Alkaleri"/>
+                        <ComboBoxItem Content="Amuwo - Odofin"/>
+                        <ComboBoxItem Content=" East"/>
+                        <ComboBoxItem Content=" West"/>
+                        <ComboBoxItem Content="Anaocha"/>
+                        <ComboBoxItem Content="Andoni"/>
+                        <ComboBoxItem Content="Aninri"/>
+                        <ComboBoxItem Content="Aniocha North"/>
+                        <ComboBoxItem Content="Aniocha South"/>
+                        <ComboBoxItem Content="Anka"/>
+                        <ComboBoxItem Content="Ankpa"/>
+                        <ComboBoxItem Content="Apa"/>
+                        <ComboBoxItem Content="Apapa"/>
+                        <ComboBoxItem Content="Ado"/>
+                        <ComboBoxItem Content="Ardo Kola"/>
+                        <ComboBoxItem Content="Arewa Dandi"/>
+                        <ComboBoxItem Content="Argungu"/>
+                        <ComboBoxItem Content="Arochukwu"/>
+                        <ComboBoxItem Content="Asa"/>
+                        <ComboBoxItem Content="Asari - Toru"/>
+                        <ComboBoxItem Content="Askira / Uba"/>
+                        <ComboBoxItem Content="Atakunmosa East"/>
+                        <ComboBoxItem Content="Atakunmosa West"/>
+                        <ComboBoxItem Content="Atiba"/>
+                        <ComboBoxItem Content="Atisbo"/>
+                        <ComboBoxItem Content="Augie"/>
+                        <ComboBoxItem Content="Auyo"/>
+                        <ComboBoxItem Content="Awe"/>
+                        <ComboBoxItem Content="Awgu"/>
+                        <ComboBoxItem Content="Awka North"/>
+                        <ComboBoxItem Content="Awka South"/>
+                        <ComboBoxItem Content="Ayamelum"/>
+                        <ComboBoxItem Content="Aiyedaade"/>
+                        <ComboBoxItem Content="Aiyedire"/>
+                        <ComboBoxItem Content="Babura"/>
+                        <ComboBoxItem Content="Badagry"/>
+                        <ComboBoxItem Content="Bagudo"/>
+                        <ComboBoxItem Content="Bagwai"/>
+                        <ComboBoxItem Content="Bakassi"/>
+                        <ComboBoxItem Content="Bokkos"/>
+                        <ComboBoxItem Content="Bakori"/>
+                        <ComboBoxItem Content="Bakura"/>
+                        <ComboBoxItem Content="Balanga"/>
+                        <ComboBoxItem Content="Bali"/>
+                        <ComboBoxItem Content="Bama"/>
+                        <ComboBoxItem Content="Bade"/>
+                        <ComboBoxItem Content="Barkin Ladi"/>
+                        <ComboBoxItem Content="Baruten"/>
+                        <ComboBoxItem Content="Bassa"/>
+                        <ComboBoxItem Content="Bassa"/>
+                        <ComboBoxItem Content="Batagarawa"/>
+                        <ComboBoxItem Content="Batsari"/>
+                        <ComboBoxItem Content="Baure"/>
+                        <ComboBoxItem Content="Bayo"/>
+                        <ComboBoxItem Content="Bebeji"/>
+                        <ComboBoxItem Content="Bekwarra"/>
+                        <ComboBoxItem Content="Bende"/>
+                        <ComboBoxItem Content="Biase"/>
+                        <ComboBoxItem Content="Bichi"/>
+                        <ComboBoxItem Content="Bida"/>
+                        <ComboBoxItem Content="Billiri"/>
+                        <ComboBoxItem Content="Bindawa"/>
+                        <ComboBoxItem Content="Binji"/>
+                        <ComboBoxItem Content="Biriniwa"/>
+                        <ComboBoxItem Content="Birnin Gwari"/>
+                        <ComboBoxItem Content="Birnin"/>
+                        <ComboBoxItem Content="Birnin Kudu"/>
+                        <ComboBoxItem Content="Birnin Magaji/ Kiyaw"/>
+                        <ComboBoxItem Content="Biu"/>
+                        <ComboBoxItem Content="Bodinga"/>
+                        <ComboBoxItem Content="Bogoro"/>
+                        <ComboBoxItem Content="Boki"/>
+                        <ComboBoxItem Content="Boluwaduro"/>
+                        <ComboBoxItem Content="Bomadi"/>
+                        <ComboBoxItem Content="Bonny"/>
+                        <ComboBoxItem Content="Borgu"/>
+                        <ComboBoxItem Content="Boripe"/>
+                        <ComboBoxItem Content="Bursari"/>
+                        <ComboBoxItem Content="Bosso"/>
+                        <ComboBoxItem Content="Brass"/>
+                        <ComboBoxItem Content="Buji"/>
+                        <ComboBoxItem Content="Bukkuyum"/>
+                        <ComboBoxItem Content="Buruku"/>
+                        <ComboBoxItem Content="Bungudu"/>
+                        <ComboBoxItem Content="Bunkure"/>
+                        <ComboBoxItem Content="Bunza"/>
+                        <ComboBoxItem Content="Burutu"/>
+                        <ComboBoxItem Content="Bwari"/>
+                        <ComboBoxItem Content="Calabar Municipal"/>
+                        <ComboBoxItem Content="Calabar South"/>
+                        <ComboBoxItem Content="Chanchaga"/>
+                        <ComboBoxItem Content="Charanchi"/>
+                        <ComboBoxItem Content="Chibok"/>
+                        <ComboBoxItem Content="Chikun"/>
+                        <ComboBoxItem Content="Dala"/>
+                        <ComboBoxItem Content="Damaturu"/>
+                        <ComboBoxItem Content="Damban"/>
+                        <ComboBoxItem Content="Dambatta"/>
+                        <ComboBoxItem Content="Damboa"/>
+                        <ComboBoxItem Content="Dandi"/>
+                        <ComboBoxItem Content="Dandume"/>
+                        <ComboBoxItem Content="Dange Shuni"/>
+                        <ComboBoxItem Content="Danja"/>
+                        <ComboBoxItem Content="Dan Musa"/>
+                        <ComboBoxItem Content="Darazo"/>
+                        <ComboBoxItem Content="Dass"/>
+                        <ComboBoxItem Content="Daura"/>
+                        <ComboBoxItem Content="Dawakin Kudu"/>
+                        <ComboBoxItem Content="Dawakin Tofa"/>
+                        <ComboBoxItem Content="Degema"/>
+                        <ComboBoxItem Content="Dekina"/>
+                        <ComboBoxItem Content="Demsa"/>
+                        <ComboBoxItem Content="Dikwa"/>
+                        <ComboBoxItem Content="Doguwa"/>
+                        <ComboBoxItem Content="Doma"/>
+                        <ComboBoxItem Content="Donga"/> "/>
+                        <ComboBoxItem Content="Dukku"/> "/>
+                        <ComboBoxItem Content="Dunukofia"/>
+                        <ComboBoxItem Content="Dutse"/>
+                        <ComboBoxItem Content="Dutsi"/>
+                        <ComboBoxItem Content="Dutsin Ma"/>
+                        <ComboBoxItem Content="Eastern Obolo"/>
+                        <ComboBoxItem Content="Edati"/>
+                        <ComboBoxItem Content="Ede North"/>
+                        <ComboBoxItem Content="Ede South"/>
+                        <ComboBoxItem Content="Edu"/>
+                        <ComboBoxItem Content="Ife Central"/>
+                        <ComboBoxItem Content="Ife East"/>
+                        <ComboBoxItem Content="Ife North"/>
+                        <ComboBoxItem Content="Ife South"/>
+                        <ComboBoxItem Content="Efon"/>
+                        <ComboBoxItem Content="Yewa North"/>
+                        <ComboBoxItem Content="Yewa South"/>
+                        <ComboBoxItem Content="Egbeda"/>
+                        <ComboBoxItem Content="Egbre"/>
+                        <ComboBoxItem Content="Egor"/>
+                        <ComboBoxItem Content="Ehime Mbano"/>
+                        <ComboBoxItem Content="Ejigbo"/> "/>
+                        <ComboBoxItem Content="Ekeremor"/>
+                        <ComboBoxItem Content="Eket"/>
+                        <ComboBoxItem Content="East"/>
+                        <ComboBoxItem Content="South - West"/> "/>
+                        <ComboBoxItem Content="West"/>
+                        <ComboBoxItem Content="Ekwusigo"/>
+                        <ComboBoxItem Content="Eleme"/>
+                        <ComboBoxItem Content="Emuoha"/>
+                        <ComboBoxItem Content="Emure"/>
+                        <ComboBoxItem Content="East"/>
+                        <ComboBoxItem Content="North"/>
+                        <ComboBoxItem Content="South"/>
+                        <ComboBoxItem Content="Epe"/>
+                        <ComboBoxItem Content="Esan Central"/>
+                        <ComboBoxItem Content="Esan North - East"/>
+                        <ComboBoxItem Content="Esan South-East"/>
+                        <ComboBoxItem Content="Esan West"/>
+                        <ComboBoxItem Content="Ese Odo"/>
+                        <ComboBoxItem Content="Esit Eket"/>
+                        <ComboBoxItem Content="Essien Udim"/>
+                        <ComboBoxItem Content="Etche"/>
+                        <ComboBoxItem Content="Ethiope East"/>
+                        <ComboBoxItem Content="Ethiope West"/>
+                        <ComboBoxItem Content="Etim Ekpo"/>
+                        <ComboBoxItem Content="Etinan"/>
+                        <ComboBoxItem Content="Eti Osa"/>
+                        <ComboBoxItem Content="Etsako Central"/>
+                        <ComboBoxItem Content="Etsako East"/>
+                        <ComboBoxItem Content="Etsako West"/>
+                        <ComboBoxItem Content="Etung"/>
+                        <ComboBoxItem Content="Ewekoro"/>
+                        <ComboBoxItem Content="Ezeagu"/>
+                        <ComboBoxItem Content="Ezinihitte"/>
+                        <ComboBoxItem Content="Ezza North"/>
+                        <ComboBoxItem Content="Ezza South"/>
+                        <ComboBoxItem Content="Fagge"/>
+                        <ComboBoxItem Content="Fakai"/>
+                        <ComboBoxItem Content="Faskari"/>
+                        <ComboBoxItem Content="Fika"/>
+                        <ComboBoxItem Content="Fufure"/>
+                        <ComboBoxItem Content="Funakaye"/>
+                        <ComboBoxItem Content="Fune"/>
+                        <ComboBoxItem Content="Funtua"/>
+                        <ComboBoxItem Content="Gabasawa"/>
+                        <ComboBoxItem Content="Gada"/>
+                        <ComboBoxItem Content="Gagarawa"/>
+                        <ComboBoxItem Content="Gamawa"/>
+                        <ComboBoxItem Content="Ganjuwa"/>
+                        <ComboBoxItem Content="Ganye"/>
+                        <ComboBoxItem Content="Garki"/>
+                        <ComboBoxItem Content="Garko"/>
+                        <ComboBoxItem Content="Garun Mallam"/>
+                        <ComboBoxItem Content="Gashaka"/>
+                        <ComboBoxItem Content="Gassol"/>
+                        <ComboBoxItem Content="Gaya"/>
+                        <ComboBoxItem Content="Gayuk"/>
+                        <ComboBoxItem Content="Gezawa"/>
+                        <ComboBoxItem Content="Gbako"/>
+                        <ComboBoxItem Content="Gboko"/>
+                        <ComboBoxItem Content="Gbonyin"/>
+                        <ComboBoxItem Content="Geidam"/>
+                        <ComboBoxItem Content="Giade"/>
+                        <ComboBoxItem Content="Giwa"/>
+                        <ComboBoxItem Content="Gokana"/>
+                        <ComboBoxItem Content="Gombi"/>
+                        <ComboBoxItem Content="Goronyo"/>
+                        <ComboBoxItem Content="Grie"/>
+                        <ComboBoxItem Content="Gubio"/>
+                        <ComboBoxItem Content="Gudu"/>
+                        <ComboBoxItem Content="Gujba"/>
+                        <ComboBoxItem Content="Gulani"/>
+                        <ComboBoxItem Content="Guma"/>
+                        <ComboBoxItem Content="Gumel"/>
+                        <ComboBoxItem Content="Gummi"/>
+                        <ComboBoxItem Content="Gurara"/>
+                        <ComboBoxItem Content="Guri"/>
+                        <ComboBoxItem Content="Gusau"/>
+                        <ComboBoxItem Content="Guzamala"/>
+                        <ComboBoxItem Content="Gwadabawa"/>
+                        <ComboBoxItem Content="Gwagwalada"/>
+                        <ComboBoxItem Content="Gwale"/>
+                        <ComboBoxItem Content="Gwandu"/>
+                        <ComboBoxItem Content="Gwaram"/>
+                        <ComboBoxItem Content="Gwarzo"/>
+                        <ComboBoxItem Content="Gwer East"/>
+                        <ComboBoxItem Content="Gwer West"/>
+                        <ComboBoxItem Content="Gwiwa"/>
+                        <ComboBoxItem Content="Gwoza"/>
+                        <ComboBoxItem Content="Hadejia"/>
+                        <ComboBoxItem Content="Hawul"/>
+                        <ComboBoxItem Content="Hong"/>
+                        <ComboBoxItem Content="Ibadan North"/>
+                        <ComboBoxItem Content="Ibadan North - East"/>
+                        <ComboBoxItem Content="Ibadan North-West"/>
+                        <ComboBoxItem Content="Ibadan South-East"/>
+                        <ComboBoxItem Content="Ibadan South-West"/>
+                        <ComboBoxItem Content="Ibaji"/>
+                        <ComboBoxItem Content="Ibarapa Central"/>
+                        <ComboBoxItem Content="Ibarapa East"/>
+                        <ComboBoxItem Content="Ibarapa North"/>
+                        <ComboBoxItem Content="Ibeju - Lekki"/>
+                        <ComboBoxItem Content="Ibeno"/>
+                        <ComboBoxItem Content="Ibesikpo Asutan"/>
+                        <ComboBoxItem Content="Ibi"/>
+                        <ComboBoxItem Content="Ibiono - Ibom"/>
+                        <ComboBoxItem Content="Idah"/>
+                        <ComboBoxItem Content="Idanre"/>
+                        <ComboBoxItem Content="Ideato North"/>
+                        <ComboBoxItem Content="Ideato South"/>
+                        <ComboBoxItem Content="Idemili North"/>
+                        <ComboBoxItem Content="Idemili South"/>
+                        <ComboBoxItem Content="Ido"/>
+                        <ComboBoxItem Content="Ido Osi"/>
+                        <ComboBoxItem Content="Ifako - Ijaiye"/>
+                        <ComboBoxItem Content="Ifedayo"/>
+                        <ComboBoxItem Content="Ifre"/>
+                        <ComboBoxItem Content="Ifelodun"/>
+                        <ComboBoxItem Content="Ifelodun"/>
+                        <ComboBoxItem Content="Ifo"/>
+                        <ComboBoxItem Content="Igabi"/>
+                        <ComboBoxItem Content="IgalamelaOdolu"/>
+                        <ComboBoxItem Content="Igbo Etiti"/>
+                        <ComboBoxItem Content="Igbo Eze North"/>
+                        <ComboBoxItem Content="Igbo Eze South"/>
+                        <ComboBoxItem Content="Igueben"/>
+                        <ComboBoxItem Content="Ihiala"/>
+                        <ComboBoxItem Content="Ihitte / Uboma"/>
+                        <ComboBoxItem Content="Ilaje"/>
+                        <ComboBoxItem Content="Ijebu East"/>
+                        <ComboBoxItem Content="Ijebu North"/>
+                        <ComboBoxItem Content="Ijebu North East"/>
+                        <ComboBoxItem Content="Ijebu Ode"/>
+                        <ComboBoxItem Content="Ijero"/>
+                        <ComboBoxItem Content="Ijumu"/>
+                        <ComboBoxItem Content="Ika"/>
+                        <ComboBoxItem Content="Ika North East"/>
+                        <ComboBoxItem Content="Ikara"/>
+                        <ComboBoxItem Content="Ika South"/>
+                        <ComboBoxItem Content="Ikeduru"/>
+                        <ComboBoxItem Content="Ikeja"/>
+                        <ComboBoxItem Content="Ikenne"/>
+                        <ComboBoxItem Content="Ikere"/>
+                        <ComboBoxItem Content="Ikole"/>
+                        <ComboBoxItem Content="Ikom"/>
+                        <ComboBoxItem Content="Ikono"/>
+                        <ComboBoxItem Content="Ikorodu"/>
+                        <ComboBoxItem Content="Ikot Abasi"/>
+                        <ComboBoxItem Content="Ikot Ekpene"/>
+                        <ComboBoxItem Content="Ikpoba Okha"/>
+                        <ComboBoxItem Content="Ikwerre"/>
+                        <ComboBoxItem Content="Ikwo"/>
+                        <ComboBoxItem Content="Ikwuano"/>
+                        <ComboBoxItem Content="Ila"/>
+                        <ComboBoxItem Content="Ilejemeje"/>
+                        <ComboBoxItem Content="Ile Oluji/ Okeigbo"/>
+                        <ComboBoxItem Content="Ilesa East"/>
+                        <ComboBoxItem Content="Ilesa West"/>
+                        <ComboBoxItem Content="Illela"/>
+                        <ComboBoxItem Content="Ilorin East"/>
+                        <ComboBoxItem Content="Ilorin South"/>
+                        <ComboBoxItem Content="Ilorin West"/>
+                        <ComboBoxItem Content="Imeko Afon"/>
+                        <ComboBoxItem Content="Ingawa"/>
+                        <ComboBoxItem Content="Ini"/>
+                        <ComboBoxItem Content="Ipokia"/>
+                        <ComboBoxItem Content="Irele"/>
+                        <ComboBoxItem Content="Irepo"/>
+                        <ComboBoxItem Content="Irepodun"/>
+                        <ComboBoxItem Content="Irepodun"/>
+                        <ComboBoxItem Content="Irepodun / Ifelodun"/>
+                        <ComboBoxItem Content="Irewole"/>
+                        <ComboBoxItem Content="Isa"/>
+                        <ComboBoxItem Content="Ise / Orun"/>
+                        <ComboBoxItem Content="Iseyin"/>
+                        <ComboBoxItem Content="Ishielu"/>
+                        <ComboBoxItem Content="Isiala Mbano"/>
+                        <ComboBoxItem Content="Isiala Ngwa North"/>
+                        <ComboBoxItem Content="Isiala Ngwa South"/>
+                        <ComboBoxItem Content="Isin"/>
+                        <ComboBoxItem Content="Isi Uzo"/>
+                        <ComboBoxItem Content="Isokan"/>
+                        <ComboBoxItem Content="Isoko North"/>
+                        <ComboBoxItem Content="Isoko South"/>
+                        <ComboBoxItem Content="Isu"/>
+                        <ComboBoxItem Content="Isuikwuato"/>
+                        <ComboBoxItem Content="Itas / Gadau"/>
+                        <ComboBoxItem Content="Itesiwaju"/>
+                        <ComboBoxItem Content="Itu"/>
+                        <ComboBoxItem Content="Ivo"/>
+                        <ComboBoxItem Content="Iwajowa"/>
+                        <ComboBoxItem Content="Iwo"/>
+                        <ComboBoxItem Content="Izzi"/>
+                        <ComboBoxItem Content="Jaba"/>
+                        <ComboBoxItem Content="Jada"/>
+                        <ComboBoxItem Content="Jahun"/>
+                        <ComboBoxItem Content="Jakusko"/>
+                        <ComboBoxItem Content="Jalingo"/>
+                        <ComboBoxItem Content="Jama'are	"/>
+                        <ComboBoxItem Content="Jega"/>
+                        <ComboBoxItem Content="Jema'a"/>
+                        <ComboBoxItem Content="Jere"/>
+                        <ComboBoxItem Content="Jibia"/>
+                        <ComboBoxItem Content="Jos East"/>
+                        <ComboBoxItem Content="Jos North"/>
+                        <ComboBoxItem Content="Jos South"/>
+                        <ComboBoxItem Content="Kabba / Bunu"/>
+                        <ComboBoxItem Content="Kabo"/>
+                        <ComboBoxItem Content="Kachia"/>
+                        <ComboBoxItem Content="North"/>
+                        <ComboBoxItem Content="South"/>
+                        <ComboBoxItem Content="Kafin Hausa"/>
+                        <ComboBoxItem Content="Kafur"/>
+                        <ComboBoxItem Content="Kaga"/>
+                        <ComboBoxItem Content="Kagarko"/>
+                        <ComboBoxItem Content="Kaiama"/>
+                        <ComboBoxItem Content="Kaita"/>
+                        <ComboBoxItem Content="Kajola"/>
+                        <ComboBoxItem Content="Kajuru"/>
+                        <ComboBoxItem Content="Kala / Balge"/>
+                        <ComboBoxItem Content="Kalgo"/>
+                        <ComboBoxItem Content="Kaltungo"/>
+                        <ComboBoxItem Content="Kanam"/>
+                        <ComboBoxItem Content="Kankara"/>
+                        <ComboBoxItem Content="Kanke"/>
+                        <ComboBoxItem Content="Kankia"/>
+                        <ComboBoxItem Content="Municipal"/>
+                        <ComboBoxItem Content="Karasuwa"/>
+                        <ComboBoxItem Content="Karaye"/>
+                        <ComboBoxItem Content="Karim Lamido"/>
+                        <ComboBoxItem Content="Karu"/>
+                        <ComboBoxItem Content="Katagum"/>
+                        <ComboBoxItem Content="Katcha"/>
+                        <ComboBoxItem Content="Ala"/>
+                        <ComboBoxItem Content="Kaura"/>
+                        <ComboBoxItem Content="Kaura Namoda"/>
+                        <ComboBoxItem Content="Kauru"/>
+                        <ComboBoxItem Content="Kazaure"/>
+                        <ComboBoxItem Content="Keana"/>
+                        <ComboBoxItem Content="Kebbe"/>
+                        <ComboBoxItem Content="Keffi"/>
+                        <ComboBoxItem Content="Khana"/>
+                        <ComboBoxItem Content="Kibiya"/>
+                        <ComboBoxItem Content="Kirfi"/>
+                        <ComboBoxItem Content="Kiri Kasama"/>
+                        <ComboBoxItem Content="Kiru"/>
+                        <ComboBoxItem Content="Kiyawa"/>
+                        <ComboBoxItem Content="Koko / Besse"/>
+                        <ComboBoxItem Content="Kokona"/>
+                        <ComboBoxItem Content="Kolokuma / Opokuma"/>
+                        <ComboBoxItem Content="Konduga"/>
+                        <ComboBoxItem Content="Konshisha"/>
+                        <ComboBoxItem Content="Kontagora"/>
+                        <ComboBoxItem Content="Kosofe"/>
+                        <ComboBoxItem Content="Kaugama"/>
+                        <ComboBoxItem Content="Kubau"/>
+                        <ComboBoxItem Content="Kudan"/>
+                        <ComboBoxItem Content="Kuje"/>
+                        <ComboBoxItem Content="Kukawa"/>
+                        <ComboBoxItem Content="Kumbotso"/>
+                        <ComboBoxItem Content="Kumi"/>
+                        <ComboBoxItem Content="Kunchi"/>
+                        <ComboBoxItem Content="Kura"/>
+                        <ComboBoxItem Content="Kurfi"/>
+                        <ComboBoxItem Content="Kusada"/>
+                        <ComboBoxItem Content="Kwali"/>
+                        <ComboBoxItem Content="Kwande"/>
+                        <ComboBoxItem Content="Kwami"/>
+                        <ComboBoxItem Content="Kware"/>
+                        <ComboBoxItem Content="Kwaya Kusar"/>
+                        <ComboBoxItem Content="Lafia"/>
+                        <ComboBoxItem Content="Lagelu"/>
+                        <ComboBoxItem Content="Island"/>
+                        <ComboBoxItem Content="Mainland"/>
+                        <ComboBoxItem Content="Langtang South"/>
+                        <ComboBoxItem Content="Langtang North"/>
+                        <ComboBoxItem Content="Lapai"/>
+                        <ComboBoxItem Content="Lamurde"/>
+                        <ComboBoxItem Content="Lau"/>
+                        <ComboBoxItem Content="Lavun"/>
+                        <ComboBoxItem Content="Lere"/>
+                        <ComboBoxItem Content="Logo"/>
+                        <ComboBoxItem Content="Lokoja"/>
+                        <ComboBoxItem Content="Machina"/>
+                        <ComboBoxItem Content="Madagali"/>
+                        <ComboBoxItem Content="Madobi"/>
+                        <ComboBoxItem Content="Mafa"/>
+                        <ComboBoxItem Content="Magama"/>
+                        <ComboBoxItem Content="Magumeri"/>
+                        <ComboBoxItem Content="Mai'Adua	"/>
+                        <ComboBoxItem Content="Maiduguri"/>
+                        <ComboBoxItem Content="Maigatari"/>
+                        <ComboBoxItem Content="Maiha"/>
+                        <ComboBoxItem Content="Maiyama"/>
+                        <ComboBoxItem Content="Makarfi"/>
+                        <ComboBoxItem Content="Makoda"/>
+                        <ComboBoxItem Content="Malam Madori"/>
+                        <ComboBoxItem Content="Malumfashi"/>
+                        <ComboBoxItem Content="Mangu"/>
+                        <ComboBoxItem Content="Mani"/>
+                        <ComboBoxItem Content="Maradun"/>
+                        <ComboBoxItem Content="Mariga"/>
+                        <ComboBoxItem Content="Makurdi"/>
+                        <ComboBoxItem Content="Marte"/>
+                        <ComboBoxItem Content="Maru"/>
+                        <ComboBoxItem Content="Mashegu"/>
+                        <ComboBoxItem Content="Mashi"/>
+                        <ComboBoxItem Content="Matazu"/>
+                        <ComboBoxItem Content="Mayo Belwa"/>
+                        <ComboBoxItem Content="Mbaitoli"/>
+                        <ComboBoxItem Content="Mbo"/>
+                        <ComboBoxItem Content="Michika"/>
+                        <ComboBoxItem Content="Miga"/>
+                        <ComboBoxItem Content="Mikang"/>
+                        <ComboBoxItem Content="Minjibir"/>
+                        <ComboBoxItem Content="Misau"/>
+                        <ComboBoxItem Content="Moba"/>
+                        <ComboBoxItem Content="Mobbar"/>
+                        <ComboBoxItem Content="Mubi North"/>
+                        <ComboBoxItem Content="Mubi South"/>
+                        <ComboBoxItem Content="Mokwa"/>
+                        <ComboBoxItem Content="Monguno"/>
+                        <ComboBoxItem Content="Mopa Muro"/>
+                        <ComboBoxItem Content="Moro"/>
+                        <ComboBoxItem Content="Moya"/>
+                        <ComboBoxItem Content="Mkpat - Enin"/>
+                        <ComboBoxItem Content="Municipal Area Council"/>
+                        <ComboBoxItem Content="Musawa"/>
+                        <ComboBoxItem Content="Mushin"/>
+                        <ComboBoxItem Content="Nafada"/>
+                        <ComboBoxItem Content="Nangere"/>
+                        <ComboBoxItem Content="Egon"/>
+                        <ComboBoxItem Content="Ndokwa East"/>
+                        <ComboBoxItem Content="Ndokwa West"/>
+                        <ComboBoxItem Content="Nembe"/>
+                        <ComboBoxItem Content="Ngala"/>
+                        <ComboBoxItem Content="Nganzai"/>
+                        <ComboBoxItem Content="Ngaski"/>
+                        <ComboBoxItem Content="Ngor Okpala"/>
+                        <ComboBoxItem Content="Nguru"/>
+                        <ComboBoxItem Content="Ningi"/>
+                        <ComboBoxItem Content="Njaba"/>
+                        <ComboBoxItem Content="Njikoka"/>
+                        <ComboBoxItem Content="Nkanu East"/>
+                        <ComboBoxItem Content="Nkanu West"/>
+                        <ComboBoxItem Content="Nkwerre"/>
+                        <ComboBoxItem Content="Nnewi North"/>
+                        <ComboBoxItem Content="Nnewi South"/>
+                        <ComboBoxItem Content="Nsit - Atai"/>
+                        <ComboBoxItem Content="Nsit - Ibom"/>
+                        <ComboBoxItem Content="Nsit - Ubium"/>
+                        <ComboBoxItem Content="Nsukka"/>
+                        <ComboBoxItem Content="Numan"/>
+                        <ComboBoxItem Content="Nwangele"/>
+                        <ComboBoxItem Content="Obafemi Owode"/>
+                        <ComboBoxItem Content="Obanliku"/>
+                        <ComboBoxItem Content="Obi"/>
+                        <ComboBoxItem Content="Obi"/>
+                        <ComboBoxItem Content="Obi Ngwa"/>
+                        <ComboBoxItem Content="Obio / Akpor"/>
+                        <ComboBoxItem Content="Obokun"/>
+                        <ComboBoxItem Content="Obot Akara"/>
+                        <ComboBoxItem Content="Obowo"/>
+                        <ComboBoxItem Content="Obubra"/>
+                        <ComboBoxItem Content="Obudu"/>
+                        <ComboBoxItem Content="Odeda"/>
+                        <ComboBoxItem Content="Odigbo"/>
+                        <ComboBoxItem Content="Odogbolu"/>
+                        <ComboBoxItem Content="Odo Otin"/>
+                        <ComboBoxItem Content="Odukpani"/>
+                        <ComboBoxItem Content="Offa"/>
+                        <ComboBoxItem Content="Ofu"/>
+                        <ComboBoxItem Content="Ogba / Egbema / Ndoni"/>
+                        <ComboBoxItem Content="Ogbadibo"/>
+                        <ComboBoxItem Content="Ogbaru"/>
+                        <ComboBoxItem Content="Ogbia"/>
+                        <ComboBoxItem Content="Ogbomosho North"/>
+                        <ComboBoxItem Content="Ogbomosho South"/>
+                        <ComboBoxItem Content="Ogu / Bolo"/>
+                        <ComboBoxItem Content="Ogoja"/>
+                        <ComboBoxItem Content="Ogo Oluwa"/>
+                        <ComboBoxItem Content="Ogori / Magongo"/>
+                        <ComboBoxItem Content="Waterside"/>
+                        <ComboBoxItem Content="Oguta"/>
+                        <ComboBoxItem Content="Ohafia"/>
+                        <ComboBoxItem Content="Ohaji / Egbema"/>
+                        <ComboBoxItem Content="Ohaozara"/>
+                        <ComboBoxItem Content="Ohaukwu"/>
+                        <ComboBoxItem Content="Ohimini"/>
+                        <ComboBoxItem Content="Orhionmwon"/>
+                        <ComboBoxItem Content="Oji River"/>
+                        <ComboBoxItem Content="Ojo"/>
+                        <ComboBoxItem Content="Oju"/>
+                        <ComboBoxItem Content="Okehi"/>
+                        <ComboBoxItem Content="Okene"/>
+                        <ComboBoxItem Content="Oke Ero"/>
+                        <ComboBoxItem Content="Okigwe"/>
+                        <ComboBoxItem Content="Okitipupa"/>
+                        <ComboBoxItem Content="Okobo"/>
+                        <ComboBoxItem Content="Okpe"/>
+                        <ComboBoxItem Content="Okrika"/>
+                        <ComboBoxItem Content="Olamaboro"/>
+                        <ComboBoxItem Content="Ola Oluwa"/>
+                        <ComboBoxItem Content="Olorunda"/>
+                        <ComboBoxItem Content="Olorunsogo"/>
+                        <ComboBoxItem Content="Oluyole"/>
+                        <ComboBoxItem Content="Omala"/>
+                        <ComboBoxItem Content="Omuma"/>
+                        <ComboBoxItem Content="Ona Ara"/>
+                        <ComboBoxItem Content="East"/>
+                        <ComboBoxItem Content="West"/>
+                        <ComboBoxItem Content="Onicha"/>
+                        <ComboBoxItem Content="Onitsha North"/>
+                        <ComboBoxItem Content="Onitsha South"/>
+                        <ComboBoxItem Content="Onna"/>
+                        <ComboBoxItem Content="Okpokwu"/>
+                        <ComboBoxItem Content="Opobo / Nkoro"/>
+                        <ComboBoxItem Content="Or"/>
+                        <ComboBoxItem Content="Orelope"/>
+                        <ComboBoxItem Content="Oriade"/>
+                        <ComboBoxItem Content="Ori Ire"/>
+                        <ComboBoxItem Content="Orlu"/>
+                        <ComboBoxItem Content="Orolu"/>
+                        <ComboBoxItem Content="Oron"/>
+                        <ComboBoxItem Content="Orsu"/>
+                        <ComboBoxItem Content="Oru East"/>
+                        <ComboBoxItem Content="Oruk Anam"/>
+                        <ComboBoxItem Content="Orumba North"/>
+                        <ComboBoxItem Content="Orumba South"/>
+                        <ComboBoxItem Content="Oru West"/>
+                        <ComboBoxItem Content="Ose"/>
+                        <ComboBoxItem Content="Oshimili North"/>
+                        <ComboBoxItem Content="Oshimili South"/>
+                        <ComboBoxItem Content="Oshodi - Isolo"/>
+                        <ComboBoxItem Content="Osisioma"/>
+                        <ComboBoxItem Content="Osogbo"/>
+                        <ComboBoxItem Content="Oturkpo"/>
+                        <ComboBoxItem Content="Ovia North - East"/>
+                        <ComboBoxItem Content="Ovia South-West"/>
+                        <ComboBoxItem Content="Owan East"/>
+                        <ComboBoxItem Content="Owan West"/>
+                        <ComboBoxItem Content="Owerri Municipal"/>
+                        <ComboBoxItem Content="Owerri North"/>
+                        <ComboBoxItem Content="Owerri West"/>
+                        <ComboBoxItem Content="Owo"/>
+                        <ComboBoxItem Content="Oye"/>
+                        <ComboBoxItem Content="Oyi"/>
+                        <ComboBoxItem Content="Oyigbo"/> "/>
+                        <ComboBoxItem Content="East"/>
+                        <ComboBoxItem Content="Oyun"/>
+                        <ComboBoxItem Content="Paikoro"/>
+                        <ComboBoxItem Content="Pankshin"/>
+                        <ComboBoxItem Content="Patani"/>
+                        <ComboBoxItem Content="Pategi"/>
+                        <ComboBoxItem Content="Port Harcourt"/>
+                        <ComboBoxItem Content="Potiskum"/>
+                        <ComboBoxItem Content="Qua'an Pan"/>
+                        <ComboBoxItem Content="Rabah"/>
+                        <ComboBoxItem Content="Rafi"/>
+                        <ComboBoxItem Content="Rano"/>
+                        <ComboBoxItem Content="Remo North"/>
+                        <ComboBoxItem Content="Rijau"/>
+                        <ComboBoxItem Content="Rimi"/>
+                        <ComboBoxItem Content="Rimin Gado"/>
+                        <ComboBoxItem Content="Ringim"/>
+                        <ComboBoxItem Content="Riyom"/>
+                        <ComboBoxItem Content="Rogo"/>
+                        <ComboBoxItem Content="Roni"/>
+                        <ComboBoxItem Content="Sabon Birni"/>
+                        <ComboBoxItem Content="Sabon Gari"/>
+                        <ComboBoxItem Content="Sabuwa"/>
+                        <ComboBoxItem Content="Safana"/>
+                        <ComboBoxItem Content="Sagbama"/>
+                        <ComboBoxItem Content="Sakaba"/>
+                        <ComboBoxItem Content="Saki East"/>
+                        <ComboBoxItem Content="Saki West"/>
+                        <ComboBoxItem Content="Sandamu"/>
+                        <ComboBoxItem Content="Sanga"/>
+                        <ComboBoxItem Content="Sapele"/>
+                        <ComboBoxItem Content="Sardauna"/>
+                        <ComboBoxItem Content="Shagamu"/>
+                        <ComboBoxItem Content="Shagari"/>
+                        <ComboBoxItem Content="Shanga"/>
+                        <ComboBoxItem Content="Shani"/>
+                        <ComboBoxItem Content="Shanono"/>
+                        <ComboBoxItem Content="Shelleng"/>
+                        <ComboBoxItem Content="Shendam"/>
+                        <ComboBoxItem Content="Shinkafi"/>
+                        <ComboBoxItem Content="Shira"/>
+                        <ComboBoxItem Content="Shiroro"/>
+                        <ComboBoxItem Content="Shongom"/>
+                        <ComboBoxItem Content="Shomolu"/>
+                        <ComboBoxItem Content="Silame"/>
+                        <ComboBoxItem Content="Soba"/>
+                        <ComboBoxItem Content=" North"/>
+                        <ComboBoxItem Content=" South"/>
+                        <ComboBoxItem Content="Song"/>
+                        <ComboBoxItem Content="Southern Ijaw"/>
+                        <ComboBoxItem Content="Suleja"/>
+                        <ComboBoxItem Content="Sule Tankarkar"/>
+                        <ComboBoxItem Content="Sumaila"/>
+                        <ComboBoxItem Content="Suru"/>
+                        <ComboBoxItem Content="Surulere"/>
+                        <ComboBoxItem Content="Surulere"/>
+                        <ComboBoxItem Content="Tafa"/>
+                        <ComboBoxItem Content="Tafawa Balewa"/>
+                        <ComboBoxItem Content="Tai"/>
+                        <ComboBoxItem Content="Takai"/>
+                        <ComboBoxItem Content="Takum"/>
+                        <ComboBoxItem Content="Talata Mafara"/>
+                        <ComboBoxItem Content="Tambuwal"/>
+                        <ComboBoxItem Content="Tangaza"/>
+                        <ComboBoxItem Content="Tarauni"/>
+                        <ComboBoxItem Content="Tarka"/>
+                        <ComboBoxItem Content="Tarmuwa"/>
+                        <ComboBoxItem Content="Taura"/>
+                        <ComboBoxItem Content="Toungo"/>
+                        <ComboBoxItem Content="Tofa"/>
+                        <ComboBoxItem Content="Toro"/>
+                        <ComboBoxItem Content="Toto"/>
+                        <ComboBoxItem Content="Chafe"/>
+                        <ComboBoxItem Content="Tsanyawa"/>
+                        <ComboBoxItem Content="Tudun Wada"/>
+                        <ComboBoxItem Content="Tureta"/>
+                        <ComboBoxItem Content="Udenu"/>
+                        <ComboBoxItem Content="Udi"/>
+                        <ComboBoxItem Content="Udu"/>
+                        <ComboBoxItem Content="Udung - Uko"/>
+                        <ComboBoxItem Content="Ughelli North"/>
+                        <ComboBoxItem Content="Ughelli South"/>
+                        <ComboBoxItem Content="Ugwunagbo"/>
+                        <ComboBoxItem Content="Uhunmwonde"/>
+                        <ComboBoxItem Content="Ukanafun"/>
+                        <ComboBoxItem Content="Ukum"/>
+                        <ComboBoxItem Content="Ukwa East"/>
+                        <ComboBoxItem Content="Ukwa West"/>
+                        <ComboBoxItem Content="Ukwuani"/>
+                        <ComboBoxItem Content="Umuahia North"/>
+                        <ComboBoxItem Content="Umuahia South"/>
+                        <ComboBoxItem Content="Umu Nneochi"/>
+                        <ComboBoxItem Content="Ungogo"/>
+                        <ComboBoxItem Content="Unu"/>
+                        <ComboBoxItem Content="Uruan"/>
+                        <ComboBoxItem Content="Urue - Offong / Oruko"/>
+                        <ComboBoxItem Content="Ushongo"/>
+                        <ComboBoxItem Content="Ussa"/>
+                        <ComboBoxItem Content="Uvwie"/>
+                        <ComboBoxItem Content="Uyo"/>
+                        <ComboBoxItem Content="Uzo - Uwani"/>
+                        <ComboBoxItem Content="Vandeikya"/>
+                        <ComboBoxItem Content="Wamako"/>
+                        <ComboBoxItem Content="Wamba"/>
+                        <ComboBoxItem Content="Warawa"/>
+                        <ComboBoxItem Content="Warji"/>
+                        <ComboBoxItem Content="Warri North"/>
+                        <ComboBoxItem Content="Warri South"/>
+                        <ComboBoxItem Content="Warri South West"/>
+                        <ComboBoxItem Content="Wasagu / Danko"/>
+                        <ComboBoxItem Content="Wase"/>
+                        <ComboBoxItem Content="Wudil"/>
+                        <ComboBoxItem Content="Wukari"/>
+                        <ComboBoxItem Content="Wurno"/>
+                        <ComboBoxItem Content="Wushishi"/>
+                        <ComboBoxItem Content="Yabo"/>
+                        <ComboBoxItem Content="Yagba East"/>
+                        <ComboBoxItem Content="Yagba West"/>
+                        <ComboBoxItem Content="Yakuur"/>
+                        <ComboBoxItem Content="Obi"/>
+                        <ComboBoxItem Content="Obi"/>
+                        <ComboBoxItem Content="Obi Ngwa"/>
+                        <ComboBoxItem Content="Obio / Akpor"/>
+                        <ComboBoxItem Content="Obokun"/>
+                        <ComboBoxItem Content="Obot Akara"/>
+                        <ComboBoxItem Content="Obowo"/>
+                        <ComboBoxItem Content="Obubra"/>
+                        <ComboBoxItem Content="Yala"/>
+                        <ComboBoxItem Content="Yamaltu / Deba"/>
+                        <ComboBoxItem Content="Yankwashi"/>
+                        <ComboBoxItem Content="Yauri"/>
+                        <ComboBoxItem Content="Yenagoa"/>
+                        <ComboBoxItem Content="Yola North"/>
+                        <ComboBoxItem Content="Yola South"/>
+                        <ComboBoxItem Content="Yorro"/>
+                        <ComboBoxItem Content="Yunusari"/>
+                        <ComboBoxItem Content="Yusufari"/>
+                        <ComboBoxItem Content="Zaki"/>
+                        <ComboBoxItem Content="Zango"/>
+                        <ComboBoxItem Content="Zangon Kataf"/>
+                        <ComboBoxItem Content="Zaria"/>
+                        <ComboBoxItem Content="Zing"/>
+                        <ComboBoxItem Content="Zurmi"/>
+                        <ComboBoxItem Content="Zuru"/>
+                    </ComboBox>
+                    <ComboBox Grid.Row="0" Grid.Column="1" Margin="10,5,5,5" x:Name="state" materialDesign:HintAssist.Hint="State of Origin" materialDesign:HintAssist.IsFloating="True" Foreground="Black" FontSize="16">
+                        <ComboBoxItem Content="ABIA"/>
+                        <ComboBoxItem Content="ADAMAWA"/>
+                        <ComboBoxItem Content="AKWA IBOM"/>
+                        <ComboBoxItem Content="ANAMBRA"/>
+                        <ComboBoxItem Content="BAUCHI"/>
+                        <ComboBoxItem Content="BAYELSA"/>
+                        <ComboBoxItem Content="BENUE"/>
+                        <ComboBoxItem Content="BORNO"/>
+                        <ComboBoxItem Content="CROSS RIVER"/>
+                        <ComboBoxItem Content="DELTA"/>
+                        <ComboBoxItem Content="EBONYI"/>
+                        <ComboBoxItem Content="EDO"/>
+                        <ComboBoxItem Content="EKITI"/>
+                        <ComboBoxItem Content="ENUGU"/>
+                        <ComboBoxItem Content="ABUJA(FCT)"/>
+                        <ComboBoxItem Content="GOMBE"/>
+                        <ComboBoxItem Content="IMO"/>
+                        <ComboBoxItem Content="JIGAWA"/>
+                        <ComboBoxItem Content="KADUNA"/>
+                        <ComboBoxItem Content="KANO"/>
+                        <ComboBoxItem Content="KATSINA"/>
+                        <ComboBoxItem Content="KEBBI"/>
+                        <ComboBoxItem Content="KOGI"/>
+                        <ComboBoxItem Content="KWARA"/>
+                        <ComboBoxItem Content="LAGOS"/>
+                        <ComboBoxItem Content="NASARAWA"/>
+                        <ComboBoxItem Content="NIGER"/>
+                        <ComboBoxItem Content="OGUN"/>
+                        <ComboBoxItem Content="ONDO"/>
+                        <ComboBoxItem Content="OSUN"/>
+                        <ComboBoxItem Content="OYO"/>
+                        <ComboBoxItem Content="PLATEAU"/>
+                        <ComboBoxItem Content="RIVERS"/>
+                        <ComboBoxItem Content="SOKOTO"/>
+                        <ComboBoxItem Content="TARABA"/>
+                        <ComboBoxItem Content="YOBE"/>
+                        <ComboBoxItem Content="ZAMFARA"/>
+                    </ComboBox>
+                    <TextBox Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" Margin="10,5,5,5" x:Name="nationality" materialDesign:HintAssist.Hint="Nationality" materialDesign:HintAssist.IsFloating="True" TextWrapping="Wrap" Text="" FontSize="16"/>
+                </Grid>
+
+                <Grid Grid.Row="5" Grid.Column="0"  Grid.ColumnSpan="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />                        
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <ComboBox Grid.Row="0" Grid.Column="0" Margin="10,5,5,5" x:Name="religion" materialDesign:HintAssist.Hint="Religion" materialDesign:HintAssist.IsFloating="True" Foreground="Black" FontSize="16">
+                        <ComboBoxItem Content="Christianity"/>
+                        <ComboBoxItem Content="Islam"/>
+                        <ComboBoxItem Content="Hinduism"/>
+                        <ComboBoxItem Content="Secular/Atheis"/>
+                    </ComboBox>
+                    <TextBox Grid.Row="0" Grid.Column="2" Margin="10,5,5,5" x:Name="bloodgroup" materialDesign:HintAssist.Hint="Blood Group" materialDesign:HintAssist.IsFloating="True" TextWrapping="Wrap" Text="" FontSize="16"/>
+                </Grid>
+
+                <Grid Grid.Row="6" Grid.Column="0"  Grid.ColumnSpan="2" Margin="0,10,10,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Margin="10,5,5,5" x:Name="textBlock1_Copy1" TextWrapping="Wrap" Text="ADMISSION INFORMATION:" FontSize="18.667" Foreground="#FF707070" FontWeight="Bold" TextAlignment="Left"/>
+                    <TextBox Grid.Row="1" Grid.Column="0" Margin="10,0,15,5" Height="43" x:Name="subjectteaching" materialDesign:HintAssist.Hint="Subject Teaching" materialDesign:HintAssist.IsFloating="True" TextWrapping="Wrap" Text="" FontSize="16"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" Margin="10,0,15,5" Height="43" x:Name="classteaching" materialDesign:HintAssist.Hint="Class Teaching" materialDesign:HintAssist.IsFloating="True" TextWrapping="Wrap" Text="" FontSize="16"/>
+                </Grid>
+
+                <Grid Grid.Row="7" Grid.Column="0"  Grid.ColumnSpan="2" Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="165" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBox Grid.Row="0" Grid.Column="0" Margin="0,0,15,5" x:Name="salary" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Salary" materialDesign:HintAssist.IsFloating="True" Text="" FontSize="16"/>
+                    <TextBox Grid.Row="0" Grid.Column="1" Margin="10,0,15,5" x:Name="positioninschool" materialDesign:HintAssist.Hint="Position in School" materialDesign:HintAssist.IsFloating="True" TextWrapping="Wrap" Text="" FontSize="16"/>
+                </Grid>
+
+                <Grid Grid.Row="8" Grid.Column="0"  Grid.ColumnSpan="2" Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="165" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" x:Name="forma_Copy" TextWrapping="Wrap" Text="IGNORE VALIDATION" FontSize="15" TextDecorations="{x:Null}" Foreground="DarkRed" FontWeight="Bold" FontStyle="Italic"/>
+                    <CheckBox Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" x:Name="ignorevalidation" Content="YES" FontSize="14" Foreground="DarkRed" FontWeight="Bold" FontStyle="Italic"/>
+                </Grid>
+                <Grid Grid.Row="9" Grid.Column="0"  Grid.ColumnSpan="2" Margin="10,20,10,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Button Grid.Row="0" Grid.Column="1" Width="150" HorizontalAlignment="Right" Height="35" x:Name="insertstaff" Content="INSERT STUDENT" Background="#FF231A76" BorderBrush="{x:Null}" Click="Insertstaff_Click"/>
+                    <Button Grid.Row="0" Grid.Column="0" Width="100" HorizontalAlignment="Left" Height="35" x:Name="clearstaff" Content="CLEAR" Background="#FF231A76" BorderBrush="{x:Null}" Click="Clearstaff_Click"/>
+                </Grid>
+                                                
+            </Grid>
+        </ScrollViewer>
+        
+        <!--notify code-->
+        <materialDesign:DialogHost IsOpen="False" x:Name="notify" Background="Black">
+            <materialDesign:DialogHost.DialogContent>
+                <StackPanel Margin="10" Height="100" Width="550" Orientation="Vertical">
+                    <TextBlock x:Name="showing" Text="Hello There!"  Margin="0,15,0,0" FontSize="18" TextAlignment="Center"/>
+                    <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" CommandTarget="{Binding ElementName =notify}"
+                    Style="{DynamicResource MaterialDesignFlatButton}" Content="OK" Margin="0, 25, 0 ,0" FontSize="17.333"/>
+                </StackPanel>
+            </materialDesign:DialogHost.DialogContent>
+        </materialDesign:DialogHost>
+    </Grid>
+</Page>
